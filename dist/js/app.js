@@ -113,6 +113,7 @@ function initSalesSwiper() {
       speed: 400,
       spaceBetween: 10,
       slidesPerView: "auto",
+      mousewheel: true,
       navigation: {
          nextEl: ".sales-section__nav_next",
          prevEl: ".sales-section__nav_prev",
@@ -148,7 +149,8 @@ function initProductsSwiper() {
             speed: 400,
             spaceBetween: 4,
             slidesPerView: "auto",
-            slidesPerGroup: "auto",
+            // slidesPerGroup: "auto",
+            mousewheel: true,
             navigation: {
                nextEl: `#productSlider${index + 1} .product-section__nav_next`,
                prevEl: `#productSlider${index + 1} .product-section__nav_prev`,
@@ -162,12 +164,12 @@ function initProductsSwiper() {
                1025: {
                   spaceBetween: 12,
                   slidesPerView: "auto",
-                  slidesPerGroup: "auto",
+                  // slidesPerGroup: "auto",
                },
                568: {
                   spaceBetween: 16,
                   slidesPerView: "auto",
-                  slidesPerGroup: "auto",
+                  // slidesPerGroup: "auto",
                },
             },
          });
@@ -183,6 +185,8 @@ function initNewsSwiper() {
       watchSlidesProgress: true,
       slidesPerView: 1,
       spaceBetween: 8,
+      mousewheel: true,
+
       pagination: {
          el: ".news-thumbs__pagination",
          dynamicBullets: true,
@@ -192,14 +196,16 @@ function initNewsSwiper() {
       breakpoints: {
          993: {
             speed: 500,
-            effect: "fade",
+            // effect: "fade",
          },
       },
    });
    const newsSwiper = new Swiper(".news-section__gallery .swiper", {
-      speed: 500,
+      speed: 800,
       spaceBetween: 10,
       slidesPerView: "auto",
+      mousewheel: true,
+
       navigation: {
          nextEl: ".news-section__nav_next",
          prevEl: ".news-section__nav_prev",
@@ -219,10 +225,22 @@ function initNewsSwiper() {
          slideScaleEffect: 1,
          rotate: 1,
          stretch: 100,
-         depth: 1,
-         modifier: 1,
+         // depth: 1,
+         // modifier: 1,
          slideShadows: false,
       },
       initialSlide: 2,
+      on: {
+         init(swiper) {
+            const slides = document.querySelectorAll(
+               ".news-section__gallery .swiper .swiper-slide"
+            );
+            slides.forEach((slide, index) => {
+               slide.addEventListener("click", () => {
+                  newsSwiper.slideTo(index);
+               });
+            });
+         },
+      },
    });
 }

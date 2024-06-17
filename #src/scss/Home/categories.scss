@@ -127,6 +127,60 @@
          }
       }
    }
+   @media (max-width: 1439px) {
+      &__list {
+         &:nth-child(1) {
+            .category-section__item {
+               height: 150px;
+               &:nth-child(1) {
+                  flex: 1 1 calc(290 / 1440 * 100vw);
+               }
+               &:nth-child(2) {
+                  flex: 1 1 calc(120 / 1440 * 100vw);
+               }
+               &:nth-child(3) {
+                  flex: 1 1 calc(255 / 1440 * 100vw);
+               }
+               &:nth-child(4) {
+                  flex: 1 1 calc(255 / 1440 * 100vw);
+               }
+               &:nth-child(5) {
+                  flex: 1 1 calc(210 / 1440 * 100vw);
+               }
+               &:nth-child(6) {
+                  flex: 1 1 calc(315 / 1440 * 100vw);
+               }
+            }
+         }
+      }
+   }
+   @media (max-width: 1200px) {
+      &__list {
+         &:nth-child(1) {
+            .category-section__item {
+               height: 150px;
+               &:nth-child(1) {
+                  flex: 1 1 calc(290 / 1440 * 100vw);
+               }
+               &:nth-child(2) {
+                  flex: 1 1 calc(120 / 1440 * 100vw);
+               }
+               &:nth-child(3) {
+                  flex: 1 1 calc(255 / 1440 * 100vw);
+               }
+               &:nth-child(4) {
+                  flex: 1 1 calc(235 / 1440 * 100vw);
+               }
+               &:nth-child(5) {
+                  flex: 1 1 calc(190 / 1440 * 100vw);
+               }
+               &:nth-child(6) {
+                  flex: 1 1 calc(315 / 1440 * 100vw);
+               }
+            }
+         }
+      }
+   }
    @media (max-width: 1024px) {
       position: relative;
       &__inner {

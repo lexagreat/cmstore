@@ -50,6 +50,7 @@
          align-items: center;
       }
       .swiper-slide {
+         cursor: pointer;
          border-radius: 12px;
          overflow: hidden;
          height: 230px;
@@ -57,11 +58,24 @@
          border: 1px solid #636364;
          transition: 0.5s;
          flex: 0 0 230px;
+         position: relative;
+         &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            inset: 0;
+            background-color: #00000033;
+            pointer-events: none;
+            transition: 0.3s;
+         }
       }
       .swiper-slide-active {
          height: 270px;
          width: 400px;
          flex: 0 0 270px;
+         &::after {
+            opacity: 0;
+         }
       }
       .swiper-slide-prev,
       .swiper-slide-next {
@@ -297,6 +311,10 @@
       background-color: $white;
       display: flex;
       gap: 16px;
+      transition: 0.3s;
+      &:hover {
+         background-color: #e1e1e3;
+      }
       &::after {
          content: "";
          display: block;
@@ -309,6 +327,7 @@
    }
 
    &__all {
+      text-align: center;
       color: $white;
       height: 48px;
       padding-left: 40px;
