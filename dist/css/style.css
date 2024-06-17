@@ -1515,7 +1515,7 @@ input::-webkit-inner-spin-button {
   }
 
   .product-card__slider .swiper-slide img {
-    width: 200px;
+    width: 100%;
   }
 
   .product-card__title {
