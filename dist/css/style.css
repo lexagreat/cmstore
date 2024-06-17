@@ -913,6 +913,7 @@ input::-webkit-inner-spin-button {
 
 .news-section__thumbs .swiper-slide:not(.swiper-slide-active) {
   opacity: 0 !important;
+  pointer-events: none;
 }
 
 .news-section__thumbs .swiper {
