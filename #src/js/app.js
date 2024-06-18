@@ -113,7 +113,10 @@ function initSalesSwiper() {
       speed: 400,
       spaceBetween: 10,
       slidesPerView: "auto",
-      mousewheel: true,
+      mousewheel: {
+         enabled: true,
+         forceToAxis: true,
+      },
       navigation: {
          nextEl: ".sales-section__nav_next",
          prevEl: ".sales-section__nav_prev",
