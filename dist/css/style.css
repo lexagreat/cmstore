@@ -1737,6 +1737,11 @@ input::-webkit-inner-spin-button {
     display: block;
   }
 
+  .product-card:hover {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+
   .news-section__gallery {
     display: none;
   }

@@ -157,6 +157,7 @@ function initProductsSwiper() {
             speed: 400,
             spaceBetween: 4,
             slidesPerView: "auto",
+            freeMode: true,
             // slidesPerGroup: "auto",
             mousewheel: {
                enabled: true,
@@ -171,11 +172,13 @@ function initProductsSwiper() {
                   slidesPerView: 5,
                   spaceBetween: 12,
                   slidesPerGroup: 5,
+                  freeMode: false,
                },
                1025: {
                   spaceBetween: 12,
                   slidesPerView: "auto",
                   // slidesPerGroup: "auto",
+                  freeMode: false,
                },
                568: {
                   spaceBetween: 16,
