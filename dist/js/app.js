@@ -131,15 +131,23 @@ function initProductsSwiper() {
       return;
    }
    document.querySelectorAll(".product-card").forEach((product, index) => {
-      new Swiper(`#product${index + 1} .swiper`, {
+      let productSwiper = new Swiper(`#product${index + 1} .swiper`, {
          speed: 400,
          spaceBetween: 12,
          slidesPerView: 1,
          loop: true,
+         allowTouchMove: false,
          pagination: {
             el: `#product${index + 1} .swiper .product-card__pagination`,
             clickable: true,
          },
+      });
+      let elems = product.querySelectorAll(".product-card__hidden li");
+      elems.forEach((elem, index) => {
+         elem.addEventListener("mouseover", () => {
+            console.log(index);
+            productSwiper.slideTo(index);
+         });
       });
    });
    document
@@ -150,7 +158,10 @@ function initProductsSwiper() {
             spaceBetween: 4,
             slidesPerView: "auto",
             // slidesPerGroup: "auto",
-            mousewheel: true,
+            mousewheel: {
+               enabled: true,
+               forceToAxis: true,
+            },
             navigation: {
                nextEl: `#productSlider${index + 1} .product-section__nav_next`,
                prevEl: `#productSlider${index + 1} .product-section__nav_prev`,
@@ -185,7 +196,7 @@ function initNewsSwiper() {
       watchSlidesProgress: true,
       slidesPerView: 1,
       spaceBetween: 8,
-      mousewheel: true,
+      // mousewheel: true,
 
       pagination: {
          el: ".news-thumbs__pagination",
@@ -204,7 +215,10 @@ function initNewsSwiper() {
       speed: 800,
       spaceBetween: 10,
       slidesPerView: "auto",
-      mousewheel: true,
+      // mousewheel: {
+      //    enabled: true,
+      //    forceToAxis: true,
+      // },
 
       navigation: {
          nextEl: ".news-section__nav_next",

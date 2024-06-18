@@ -113,7 +113,20 @@
    &__header {
       position: relative;
    }
-
+   &__hidden {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      z-index: 10;
+      opacity: 0;
+      user-select: none;
+      li {
+         border-left: 1px solid blue;
+         background-color: red;
+         flex: 1;
+      }
+   }
    &__banners {
       z-index: 2;
       position: absolute;
@@ -302,6 +315,9 @@
    @media (max-width: 768px) {
       max-width: 228px;
       padding: 0px;
+      &__hidden {
+         display: none;
+      }
       &__pagination {
          display: none;
       }
@@ -318,6 +334,12 @@
       }
       &__actions {
          gap: 4px;
+      }
+      .swiper-slide {
+         display: none;
+         &:nth-child(1) {
+            display: flex;
+         }
       }
    }
    @media (max-width: 568px) {
