@@ -1509,15 +1509,6 @@ input::-webkit-inner-spin-button {
 
   .category-section {
     position: relative;
-    -ms-overflow-style: none;
-    /* IE и Edge */
-    scrollbar-width: none;
-    /* Firefox */
-  }
-
-  .category-section:-webkit-scrollbar {
-    display: none;
-    background-color: transparent;
   }
 
   .category-section__inner {
@@ -1550,20 +1541,6 @@ input::-webkit-inner-spin-button {
     background-color: transparent;
     width: 0;
     height: 0;
-  }
-
-  .category-section__list {
-    -ms-overflow-style: none;
-    /* IE и Edge */
-    scrollbar-width: none;
-    /* Firefox */
-  }
-
-  .category-section__list:-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    display: none;
-    background-color: transparent;
   }
 
   .category-section__list:nth-child(1) .category-section__item {
@@ -2017,9 +1994,10 @@ input::-webkit-inner-spin-button {
   }
 
   .category-section__inner {
+    overflow: hidden;
     margin-left: -12px;
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 0;
+    padding-right: 0;
     -ms-overflow-style: none;
     /* IE и Edge */
     scrollbar-width: none;
@@ -2038,6 +2016,23 @@ input::-webkit-inner-spin-button {
   .category-section__wrapper {
     gap: 8px;
     width: unset;
+    overflow: auto;
+    width: 100vw;
+    padding-left: 12px;
+    padding-right: 12px;
+    -ms-overflow-style: none;
+    /* IE и Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto;
+  }
+
+  .category-section__wrapper:-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+    background-color: transparent;
   }
 
   .category-section__list {

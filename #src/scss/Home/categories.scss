@@ -183,12 +183,6 @@
    }
    @media (max-width: 1024px) {
       position: relative;
-      -ms-overflow-style: none; /* IE и Edge */
-      scrollbar-width: none; /* Firefox */
-      &:-webkit-scrollbar {
-         display: none;
-         background-color: transparent;
-      }
       &__inner {
          scroll-behavior: smooth;
          overflow-x: auto;
@@ -214,14 +208,6 @@
          }
       }
       &__list {
-         -ms-overflow-style: none; /* IE и Edge */
-         scrollbar-width: none; /* Firefox */
-         &:-webkit-scrollbar {
-            width: 0;
-            height: 0;
-            display: none;
-            background-color: transparent;
-         }
          &:nth-child(1) {
             .category-section__item {
                height: 153px;
@@ -284,9 +270,10 @@
    }
    @media (max-width: 568px) {
       &__inner {
+         overflow: hidden;
          margin-left: -12px;
-         padding-left: 12px;
-         padding-right: 12px;
+         padding-left: 0;
+         padding-right: 0;
          -ms-overflow-style: none; /* IE и Edge */
          scrollbar-width: none; /* Firefox */
          -webkit-overflow-scrolling: touch;
@@ -301,6 +288,20 @@
       &__wrapper {
          gap: 8px;
          width: unset;
+         overflow: auto;
+         width: 100vw;
+         padding-left: 12px;
+         padding-right: 12px;
+         -ms-overflow-style: none; /* IE и Edge */
+         scrollbar-width: none; /* Firefox */
+         -webkit-overflow-scrolling: touch;
+         scroll-behavior: auto;
+         &:-webkit-scrollbar {
+            width: 0;
+            height: 0;
+            display: none;
+            background-color: transparent;
+         }
       }
       &__list {
          height: 130px;
