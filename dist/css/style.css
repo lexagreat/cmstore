@@ -2007,10 +2007,10 @@ input::-webkit-inner-spin-button {
   }
 
   .category-section__inner:-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    display: none;
-    background-color: transparent;
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+    background-color: transparent !important;
   }
 
   .category-section__wrapper {
@@ -2029,10 +2029,10 @@ input::-webkit-inner-spin-button {
   }
 
   .category-section__wrapper:-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    display: none;
-    background-color: transparent;
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+    background-color: transparent !important;
   }
 
   .category-section__list {

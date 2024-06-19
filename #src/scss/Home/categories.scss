@@ -279,10 +279,10 @@
          -webkit-overflow-scrolling: touch;
          scroll-behavior: auto;
          &:-webkit-scrollbar {
-            width: 0;
-            height: 0;
-            display: none;
-            background-color: transparent;
+            width: 0 !important;
+            height: 0 !important;
+            display: none !important;
+            background-color: transparent !important;
          }
       }
       &__wrapper {
@@ -297,10 +297,10 @@
          -webkit-overflow-scrolling: touch;
          scroll-behavior: auto;
          &:-webkit-scrollbar {
-            width: 0;
-            height: 0;
-            display: none;
-            background-color: transparent;
+            width: 0 !important;
+            height: 0 !important;
+            display: none !important;
+            background-color: transparent !important;
          }
       }
       &__list {
