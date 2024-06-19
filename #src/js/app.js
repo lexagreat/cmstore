@@ -168,14 +168,14 @@ function initProductsSwiper() {
                   enabled: true,
                   forceToAxis: true,
                },
-               // navigation: {
-               //    nextEl: `#productSlider${
-               //       index + 1
-               //    } .product-section__nav_next`,
-               //    prevEl: `#productSlider${
-               //       index + 1
-               //    } .product-section__nav_prev`,
-               // },
+               navigation: {
+                  nextEl: `#productSlider${
+                     index + 1
+                  } .product-section__nav_next`,
+                  prevEl: `#productSlider${
+                     index + 1
+                  } .product-section__nav_prev`,
+               },
                breakpoints: {
                   1550: {
                      slidesPerView: 5,

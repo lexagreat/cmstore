@@ -1509,6 +1509,14 @@ input::-webkit-inner-spin-button {
 
   .category-section {
     position: relative;
+    -ms-overflow-style: none;
+    /* IE и Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .category-section:-webkit-scrollbar {
+    display: none;
   }
 
   .category-section__inner {

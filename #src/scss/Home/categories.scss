@@ -183,6 +183,11 @@
    }
    @media (max-width: 1024px) {
       position: relative;
+      -ms-overflow-style: none; /* IE и Edge */
+      scrollbar-width: none; /* Firefox */
+      &:-webkit-scrollbar {
+         display: none;
+      }
       &__inner {
          scroll-behavior: smooth;
          overflow: auto;
