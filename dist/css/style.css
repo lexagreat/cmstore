@@ -2027,6 +2027,7 @@ input::-webkit-inner-spin-button {
     /* IE и Edge */
     scrollbar-width: none;
     /* Firefox */
+    -webkit-overflow-scrolling: touch;
   }
 
   .category-section__inner:-webkit-scrollbar {
