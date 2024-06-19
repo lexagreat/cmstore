@@ -203,20 +203,18 @@
       }
       &__wrapper {
          width: 1375px;
-         overflow: hidden;
-         // -ms-overflow-style: none; /* IE и Edge */
-         // scrollbar-width: none; /* Firefox */
-         // &:-webkit-scrollbar {
-         //    display: none;
-         // }
+         -ms-overflow-style: none; /* IE и Edge */
+         scrollbar-width: none; /* Firefox */
+         &:-webkit-scrollbar {
+            display: none;
+         }
       }
       &__list {
-         overflow: hidden;
-         // -ms-overflow-style: none; /* IE и Edge */
-         // scrollbar-width: none; /* Firefox */
-         // &:-webkit-scrollbar {
-         //    display: none;
-         // }
+         -ms-overflow-style: none; /* IE и Edge */
+         scrollbar-width: none; /* Firefox */
+         &:-webkit-scrollbar {
+            display: none;
+         }
          &:nth-child(1) {
             .category-section__item {
                height: 153px;
