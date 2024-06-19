@@ -25,9 +25,7 @@
       padding-left: 10px;
       padding-right: 10px;
       .swiper-slide {
-         @media (max-width: 1440px) {
-            max-width: 293px;
-         }
+         max-width: 293px;
          @media (max-width: 1024px) {
             max-width: 243px;
          }

@@ -177,7 +177,7 @@ function initProductsSwiper() {
                //    } .product-section__nav_prev`,
                // },
                breakpoints: {
-                  1441: {
+                  1550: {
                      slidesPerView: 5,
                      spaceBetween: 12,
                      // slidesPerGroup: 5,
