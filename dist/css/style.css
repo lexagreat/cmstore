@@ -1536,6 +1536,8 @@ input::-webkit-inner-spin-button {
   .category-section__inner:-webkit-scrollbar {
     display: none;
     background-color: transparent;
+    width: 0;
+    height: 0;
   }
 
   .category-section__wrapper {
@@ -1549,6 +1551,8 @@ input::-webkit-inner-spin-button {
   .category-section__wrapper:-webkit-scrollbar {
     display: none;
     background-color: transparent;
+    width: 0;
+    height: 0;
   }
 
   .category-section__list {
@@ -1559,6 +1563,8 @@ input::-webkit-inner-spin-button {
   }
 
   .category-section__list:-webkit-scrollbar {
+    width: 0;
+    height: 0;
     display: none;
     background-color: transparent;
   }

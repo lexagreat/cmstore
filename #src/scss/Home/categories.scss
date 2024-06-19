@@ -201,6 +201,8 @@
          &:-webkit-scrollbar {
             display: none;
             background-color: transparent;
+            width: 0;
+            height: 0;
          }
       }
       &__wrapper {
@@ -210,12 +212,16 @@
          &:-webkit-scrollbar {
             display: none;
             background-color: transparent;
+            width: 0;
+            height: 0;
          }
       }
       &__list {
          -ms-overflow-style: none; /* IE и Edge */
          scrollbar-width: none; /* Firefox */
          &:-webkit-scrollbar {
+            width: 0;
+            height: 0;
             display: none;
             background-color: transparent;
          }
