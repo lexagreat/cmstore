@@ -187,6 +187,7 @@
       scrollbar-width: none; /* Firefox */
       &:-webkit-scrollbar {
          display: none;
+         background-color: transparent;
       }
       &__inner {
          scroll-behavior: smooth;
@@ -199,6 +200,7 @@
          scrollbar-width: none; /* Firefox */
          &:-webkit-scrollbar {
             display: none;
+            background-color: transparent;
          }
       }
       &__wrapper {
@@ -207,6 +209,7 @@
          scrollbar-width: none; /* Firefox */
          &:-webkit-scrollbar {
             display: none;
+            background-color: transparent;
          }
       }
       &__list {
@@ -214,6 +217,7 @@
          scrollbar-width: none; /* Firefox */
          &:-webkit-scrollbar {
             display: none;
+            background-color: transparent;
          }
          &:nth-child(1) {
             .category-section__item {

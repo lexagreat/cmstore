@@ -1517,6 +1517,7 @@ input::-webkit-inner-spin-button {
 
   .category-section:-webkit-scrollbar {
     display: none;
+    background-color: transparent;
   }
 
   .category-section__inner {
@@ -1534,6 +1535,7 @@ input::-webkit-inner-spin-button {
 
   .category-section__inner:-webkit-scrollbar {
     display: none;
+    background-color: transparent;
   }
 
   .category-section__wrapper {
@@ -1546,6 +1548,7 @@ input::-webkit-inner-spin-button {
 
   .category-section__wrapper:-webkit-scrollbar {
     display: none;
+    background-color: transparent;
   }
 
   .category-section__list {
@@ -1557,6 +1560,7 @@ input::-webkit-inner-spin-button {
 
   .category-section__list:-webkit-scrollbar {
     display: none;
+    background-color: transparent;
   }
 
   .category-section__list:nth-child(1) .category-section__item {
