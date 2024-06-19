@@ -156,40 +156,67 @@ function initProductsSwiper() {
    document
       .querySelectorAll(".product-section__slider")
       .forEach((slider, index) => {
-         new Swiper(`#productSlider${index + 1} .product-section__slider`, {
-            speed: 400,
-            spaceBetween: 4,
-            slidesPerView: "auto",
-            freeMode: true,
-            // slidesPerGroup: "auto",
-            mousewheel: {
-               enabled: true,
-               forceToAxis: true,
-            },
-            navigation: {
-               nextEl: `#productSlider${index + 1} .product-section__nav_next`,
-               prevEl: `#productSlider${index + 1} .product-section__nav_prev`,
-            },
-            breakpoints: {
-               1441: {
-                  slidesPerView: 5,
-                  spaceBetween: 12,
-                  slidesPerGroup: 5,
-                  freeMode: false,
+         let productSwiper = new Swiper(
+            `#productSlider${index + 1} .product-section__slider`,
+            {
+               speed: 400,
+               spaceBetween: 4,
+               slidesPerView: "auto",
+               freeMode: true,
+               // slidesPerGroup: "auto",
+               mousewheel: {
+                  enabled: true,
+                  forceToAxis: true,
                },
-               1025: {
-                  spaceBetween: 12,
-                  slidesPerView: "auto",
-                  // slidesPerGroup: "auto",
-                  freeMode: false,
+               // navigation: {
+               //    nextEl: `#productSlider${
+               //       index + 1
+               //    } .product-section__nav_next`,
+               //    prevEl: `#productSlider${
+               //       index + 1
+               //    } .product-section__nav_prev`,
+               // },
+               breakpoints: {
+                  1441: {
+                     slidesPerView: 5,
+                     spaceBetween: 12,
+                     // slidesPerGroup: 5,
+                  },
+                  1025: {
+                     spaceBetween: 12,
+                     slidesPerView: "auto",
+                     // slidesPerGroup: "auto",
+                  },
+                  568: {
+                     spaceBetween: 16,
+                     slidesPerView: "auto",
+                     // slidesPerGroup: "auto",
+                  },
                },
-               568: {
-                  spaceBetween: 16,
-                  slidesPerView: "auto",
-                  // slidesPerGroup: "auto",
+               on: {
+                  init() {
+                     document
+                        .querySelector(
+                           `#productSlider${
+                              index + 1
+                           } .product-section__nav_next`
+                        )
+                        .addEventListener("click", () => {
+                           productSwiper.slideTo(productSwiper.activeIndex + 4);
+                        });
+                     document
+                        .querySelector(
+                           `#productSlider${
+                              index + 1
+                           } .product-section__nav_prev`
+                        )
+                        .addEventListener("click", () => {
+                           productSwiper.slideTo(productSwiper.activeIndex - 4);
+                        });
+                  },
                },
-            },
-         });
+            }
+         );
       });
 }
 function initNewsSwiper() {
