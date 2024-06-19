@@ -1538,11 +1538,25 @@ input::-webkit-inner-spin-button {
 
   .category-section__wrapper {
     width: 1375px;
-    overflow: hidden;
+    -ms-overflow-style: none;
+    /* IE и Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .category-section__wrapper:-webkit-scrollbar {
+    display: none;
   }
 
   .category-section__list {
-    overflow: hidden;
+    -ms-overflow-style: none;
+    /* IE и Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .category-section__list:-webkit-scrollbar {
+    display: none;
   }
 
   .category-section__list:nth-child(1) .category-section__item {
