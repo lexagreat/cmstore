@@ -203,18 +203,20 @@
       }
       &__wrapper {
          width: 1375px;
-         -ms-overflow-style: none; /* IE и Edge */
-         scrollbar-width: none; /* Firefox */
-         &:-webkit-scrollbar {
-            display: none;
-         }
+         overflow: hidden;
+         // -ms-overflow-style: none; /* IE и Edge */
+         // scrollbar-width: none; /* Firefox */
+         // &:-webkit-scrollbar {
+         //    display: none;
+         // }
       }
       &__list {
-         -ms-overflow-style: none; /* IE и Edge */
-         scrollbar-width: none; /* Firefox */
-         &:-webkit-scrollbar {
-            display: none;
-         }
+         overflow: hidden;
+         // -ms-overflow-style: none; /* IE и Edge */
+         // scrollbar-width: none; /* Firefox */
+         // &:-webkit-scrollbar {
+         //    display: none;
+         // }
          &:nth-child(1) {
             .category-section__item {
                height: 153px;
