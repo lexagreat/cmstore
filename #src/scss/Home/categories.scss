@@ -290,6 +290,14 @@
          margin-left: -12px;
          padding-left: 12px;
          padding-right: 12px;
+         -ms-overflow-style: none; /* IE и Edge */
+         scrollbar-width: none; /* Firefox */
+         &:-webkit-scrollbar {
+            width: 0;
+            height: 0;
+            display: none;
+            background-color: transparent;
+         }
       }
       &__wrapper {
          gap: 8px;
