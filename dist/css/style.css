@@ -241,6 +241,14 @@ input::-webkit-inner-spin-button {
   right: 30px;
 }
 
+.home-hero__inner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+}
+
 .home-hero__footer {
   position: absolute;
   bottom: 32px;

@@ -71,17 +71,38 @@ function initHeroSwiper() {
                   stopBtn.classList.add("active");
                }
             });
+            // document
+            //    .querySelector(".home-hero__slider")
+            //    .addEventListener("mouseenter", (e) => {
+            //       // if (e.target.closest(".home-hero__inner")) {
+            //       //    console.log(e);
+            //       // }
+            //       if (!isStop) {
+            //          this.autoplay.pause();
+            //          stopBtn.classList.add("active");
+            //       }
+            //    });
             document
                .querySelector(".home-hero__slider")
-               .addEventListener("mouseenter", () => {
-                  if (!isStop) {
-                     this.autoplay.pause();
-                     stopBtn.classList.add("active");
+               .addEventListener("mousemove", (e) => {
+                  if (
+                     e.target.getBoundingClientRect().height - e.offsetY <
+                     80
+                  ) {
+                     if (this.autoplay.paused && !isStop) {
+                        this.autoplay.resume();
+                        stopBtn.classList.remove("active");
+                     }
+                  } else {
+                     if (!isStop && !this.autoplay.paused) {
+                        this.autoplay.pause();
+                        stopBtn.classList.add("active");
+                     }
                   }
                });
             document
                .querySelector(".home-hero__slider")
-               .addEventListener("mouseleave", () => {
+               .addEventListener("mouseleave", (e) => {
                   if (!isStop && this.autoplay.paused) {
                      this.autoplay.resume();
                      stopBtn.classList.remove("active");
