@@ -1381,6 +1381,10 @@ input::-webkit-inner-spin-button {
   width: fit-content;
 }
 
+.faq-navigation__wrapper {
+  overflow: hidden;
+}
+
 .faq-navigation__link {
   white-space: nowrap;
   padding: 0 16px;
@@ -1405,8 +1409,16 @@ input::-webkit-inner-spin-button {
   transition: 0.3s;
 }
 
-.faq-navigation__link:active,
+.faq-navigation__link:active {
+  background-color: #e1e1e3;
+}
+
 .faq-navigation__link.active {
+  background-color: #0e0e0e;
+  color: #fff;
+}
+
+.faq-navigation__link.active:active {
   background-color: #0e0e0e;
   color: #fff;
 }
@@ -2303,6 +2315,10 @@ input::-webkit-inner-spin-button {
     gap: 12px;
   }
 
+  .faq-page__list {
+    gap: 40px;
+  }
+
   .faq-navigation.sticky + .faq-page__list {
     padding-top: 60px;
   }
@@ -2727,6 +2743,7 @@ input::-webkit-inner-spin-button {
 
   .faq-page__list {
     padding: 0 12px;
+    gap: 32px;
   }
 
   .faq-navigation.sticky {
@@ -2762,6 +2779,10 @@ input::-webkit-inner-spin-button {
   }
 
   .faq-navigation__link:hover {
+    background-color: #e1e1e3;
+  }
+
+  .faq-navigation__link.active:hover {
     background-color: #0e0e0e;
     color: #fff;
   }

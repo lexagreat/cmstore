@@ -343,9 +343,14 @@ function useNavigation() {
 
    function pageNavigation() {
       const navSwiper = new Swiper(".faq-navigation .swiper", {
-         speed: 800,
+         speed: 500,
          spaceBetween: 8,
          slidesPerView: "auto",
+         mousewheel: {
+            enabled: true,
+            forceToAxis: true,
+         },
+         freeMode: true,
       });
       const links = document.querySelectorAll(".faq-navigation__link");
       const sections = document.querySelectorAll(".faq-section");
@@ -360,7 +365,8 @@ function useNavigation() {
                      top:
                         section.getBoundingClientRect().top -
                         headerHeight -
-                        navbarHeight,
+                        navbarHeight -
+                        24,
                      behavior: "smooth",
                   });
                }
