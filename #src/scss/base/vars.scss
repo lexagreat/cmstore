@@ -12,6 +12,16 @@ $red: #d70015;
    font-size: 14px;
    line-height: calc(20 / 14);
 }
+@mixin body-xs {
+   //styleName: body-s;
+   font-size: 12px;
+   line-height: calc(16 / 12);
+}
+@mixin body-xxs {
+   //styleName: body-s;
+   font-size: 10px;
+   line-height: calc(16 / 12);
+}
 @mixin h3 {
    //styleName: H3;
    font-size: 24px;

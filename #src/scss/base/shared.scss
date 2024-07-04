@@ -142,3 +142,70 @@
       font-size: 24px;
    }
 }
+.app-input {
+   position: relative;
+   &.filled {
+      label {
+         @include body-xs;
+         top: 0;
+      }
+   }
+   input,
+   textarea {
+      width: 100%;
+      height: 48px;
+      display: flex;
+      border-radius: 8px;
+      border: 1px solid #7d7d7d;
+      padding-left: 20px;
+      @include body;
+      color: #0e0e0e;
+   }
+   label {
+      position: absolute;
+      pointer-events: none;
+      padding-left: 5px;
+      padding-right: 5px;
+      background-color: $white;
+      z-index: 1;
+      left: 15px;
+      top: 50%;
+      translate: 0 -50%;
+      color: #7d7d7d;
+      @include body;
+      transition: 0.3s;
+   }
+   @media (max-width: 768px) {
+      &.filled {
+         label {
+            @include body-xxs;
+         }
+      }
+      label {
+         @include body-xs;
+      }
+      input {
+         height: 40px;
+      }
+      input,
+      textarea {
+         @include body-s;
+      }
+      label {
+         @include body-s;
+      }
+   }
+}
+.app-btn {
+   background-color: $black;
+   color: $white;
+   transition: 0.3s;
+   &:hover {
+      background-color: #3a3a3c;
+   }
+   &:active {
+      background-color: $white;
+      border: 1px solid $black;
+      color: $black;
+   }
+}

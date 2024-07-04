@@ -27,6 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
    //faq
    useNavigation();
    accordion(".faq-item__header", ".faq-item__collapse");
+
+   //contacts
+   checkInputValue();
+   inputMasks();
 });
 
 function initHeroSwiper() {
@@ -322,6 +326,9 @@ function useNavigation() {
       .querySelector(".header")
       ?.getBoundingClientRect().height;
    let navbar = document.querySelector(".faq-navigation");
+   if (!navbar) {
+      return;
+   }
    let navbarHeight = navbar?.getBoundingClientRect().height;
    let sticky = navbar.offsetTop;
    window.addEventListener("scroll", makeNavSticky);
@@ -418,6 +425,43 @@ function useNavigation() {
       const observer = new IntersectionObserver(callback, options);
 
       sections.forEach((section) => observer.observe(section));
+   }
+}
+function checkInputValue() {
+   const inputs = document.querySelectorAll(".app-input");
+
+   if (!inputs.length) return;
+   inputs.forEach((item) => {
+      let input =
+         item.querySelector('input[type="text"]') ||
+         item.querySelector("textarea");
+      input.addEventListener("input", (e) => {
+         let value = e.target.value;
+         if (value) {
+            item.classList.add("filled");
+         } else {
+            item.classList.remove("filled");
+         }
+      });
+      input.addEventListener("focus", (e) => {
+         item.classList.add("filled");
+      });
+      input.addEventListener("blur", (e) => {
+         let value = e.target.value;
+         if (!value) {
+            item.classList.remove("filled");
+         }
+      });
+   });
+}
+function inputMasks() {
+   const maskOptions = {
+      mask: "+{7} (000) 000-00-00",
+      // lazy: false,  // make placeholder always visible
+      // placeholderChar: '0'     // defaults to '_'
+   };
+   if (document.getElementById("phone")) {
+      const mask = IMask(document.getElementById("phone"), maskOptions);
    }
 }
 
@@ -532,3 +576,104 @@ function slideHide(el, duration = 500) {
       el.style["overflow"] = "";
    }, duration);
 }
+
+// Popup
+const popupLinks = document.querySelectorAll(".modal__link");
+const body = document.querySelector("body");
+const lockPadding = document.querySelectorAll(".lock-padding");
+const popupCloseIcon = document.querySelectorAll(".modal__close");
+
+let unlock = true;
+
+const timeout = 500;
+
+if (popupLinks.length > 0) {
+   for (let index = 0; index < popupLinks.length; index++) {
+      const popupLink = popupLinks[index];
+      popupLink.addEventListener("click", function (e) {
+         const popupName = popupLink.getAttribute("href").replace("#", "");
+         const curentPopup = document.getElementById(popupName);
+         popupOpen(curentPopup);
+         e.preventDefault();
+      });
+   }
+}
+
+if (popupCloseIcon.length > 0) {
+   for (let index = 0; index < popupCloseIcon.length; index++) {
+      const el = popupCloseIcon[index];
+      el.addEventListener("click", function (e) {
+         popupClose(el.closest(".modal"));
+         e.preventDefault();
+      });
+   }
+}
+
+function popupOpen(curentPopup) {
+   if (curentPopup && unlock) {
+      const popupActive = document.querySelector(".modal.open");
+      if (popupActive) {
+         popupClose(popupActive, false);
+      } else {
+         bodyLock();
+      }
+      curentPopup.classList.add("open");
+      curentPopup.addEventListener("click", function (e) {
+         if (!e.target.closest(".modal__content")) {
+            popupClose(e.target.closest(".modal"));
+         }
+      });
+   }
+}
+function popupClose(popupActive, doUnlock = true) {
+   if (unlock) {
+      popupActive.classList.remove("open");
+      if (doUnlock) {
+         bodyUnLock();
+      }
+   }
+}
+
+function bodyLock() {
+   const lockPaddingValue =
+      window.innerWidth - document.querySelector(".wrapper").offsetWidth + "px";
+
+   if (lockPadding.length > 0) {
+      for (let index = 0; index < lockPadding.length; index++) {
+         const el = lockPadding[index];
+         el.style.paddingRight = lockPaddingValue;
+      }
+   }
+   body.style.paddingRight = lockPaddingValue;
+   body.classList.add("lock");
+
+   unlock = false;
+   setTimeout(function () {
+      unlock = true;
+   }, timeout);
+}
+
+function bodyUnLock() {
+   setTimeout(function () {
+      if (lockPadding.length > 0) {
+         for (let index = 0; index < lockPadding.length; index++) {
+            const el = lockPadding[index];
+            el.style.paddingRight = "0px";
+         }
+      }
+      body.style.paddingRight = "0px";
+      body.classList.remove("lock");
+   }, timeout);
+
+   unlock = false;
+   setTimeout(function () {
+      unlock = true;
+   }, timeout);
+}
+
+document.addEventListener("keydown", function (e) {
+   if (e.which === 27) {
+      const popupActive = document.querySelector(".modal.open");
+      popupClose(popupActive);
+   }
+});

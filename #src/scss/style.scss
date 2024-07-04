@@ -1,8 +1,10 @@
 @import "base/style";
+@import "modal";
 @import "product-section";
 @import "news-section";
 @import "Home/style";
 @import "faq/style";
+@import "contacts/style";
 
 .header {
    position: fixed;
