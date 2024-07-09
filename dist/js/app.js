@@ -711,6 +711,11 @@ function comparePage() {
                      temp.forEach((item) => {
                         item.slideTo(swiper.activeIndex);
                      });
+                     if (swiper.el.querySelector(".pagination .current")) {
+                        swiper.el.querySelector(
+                           ".pagination .current"
+                        ).innerHTML = swiper.activeIndex + 1;
+                     }
                   },
                },
             });
@@ -739,9 +744,12 @@ function comparePage() {
                pagination: {
                   el: `#tabletSwiper${i} .swiper-pagination`,
                   clickable: true,
-                  renderCustom: function (swiper, current, total) {
-                     return current + " of " + total;
-                  },
+                  // renderCustom: function (swiper, current, total) {
+                  //    return `
+                  //       <span class="current caption">0${current} –</span>
+                  //       <span class="total caption">0${total}</span>
+                  //    `;
+                  // },
                },
                on: {
                   slideChange(swiper) {
@@ -754,6 +762,14 @@ function comparePage() {
                      i > 2
                         ? tabletMainArray[i - 3].slideTo(swiper.activeIndex)
                         : tabletMainArray[i + 3].slideTo(swiper.activeIndex);
+                     if (swiper.el.querySelector(".pagination .current")) {
+                        swiper.el.querySelector(
+                           ".pagination .current"
+                        ).innerHTML = swiper.activeIndex + 1;
+                     }
+                     // document.querySelector(
+                     //    `#tabletSwiper${i} .pagination .current`
+                     // ).innerHTML = swiper.activeIndex;
                   },
                },
             });
@@ -797,6 +813,10 @@ function comparePage() {
       const desktopSwiper = new Swiper(".desktop .compare-products__swiper", {
          slidesPerView: 3,
          spaceBetween: 8,
+         navigation: {
+            prevEl: ".compare-products__nav_prev",
+            nextEl: ".compare-products__nav_next",
+         },
          breakpoints: {
             1400: {
                slidesPerView: 4,

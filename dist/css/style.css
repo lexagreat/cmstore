@@ -371,6 +371,7 @@ input::-webkit-inner-spin-button {
   left: unset;
   left: 100%;
   translate: -100% 0;
+  border-left: 2px solid #0e0e0e;
 }
 
 .switch-button__box {
@@ -387,6 +388,7 @@ input::-webkit-inner-spin-button {
 
 .switch-button__circle {
   border: 2px solid #0e0e0e;
+  border-left: 1px solid #0e0e0e;
   background-color: #fff;
   width: 24px;
   height: 24px;
@@ -2335,12 +2337,36 @@ body.lock {
   width: 1184px;
 }
 
-.compare-products .swiper-pagination {
+.compare-products .pagination {
+  position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
+  bottom: unset;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.compare-products .pagination .swiper-pagination {
+  position: relative;
+  top: unset;
+  left: unset;
+  right: unset;
   bottom: unset;
 }
 
-.compare-products .swiper-pagination .swiper-pagination-bullet {
+.compare-products .pagination .swiper-pagination-bullet {
   opacity: 1;
   width: 10px;
   height: 2px;
@@ -2351,7 +2377,7 @@ body.lock {
   background-color: #e1e1e3;
 }
 
-.compare-products .swiper-pagination .swiper-pagination-bullet-active {
+.compare-products .pagination .swiper-pagination-bullet-active {
   opacity: 1;
   background-color: #0e0e0e;
 }
@@ -2434,6 +2460,52 @@ body.lock {
   font-size: 16px;
   font-weight: 600;
   line-height: 1.25;
+}
+
+.compare-products__nav {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  width: 40px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 50%;
+  border: 1px solid #e1e1e3;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.compare-products__nav.swiper-button-disabled {
+  opacity: 0;
+}
+
+.compare-products__nav svg path {
+  stroke: #0e0e0e;
+}
+
+.compare-products__nav_prev {
+  left: 0;
+  translate: 0 -50%;
+}
+
+.compare-products__nav_next {
+  right: 0;
+  translate: 0 -50%;
+}
+
+.compare-products .desktop .swiper {
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .compare-products .tablet,
@@ -3909,6 +3981,10 @@ body.lock {
   .compare-products .sticky-product__price {
     font-size: 14px;
     line-height: 1.4285714286;
+  }
+
+  .compare-products__nav {
+    display: none;
   }
 
   .compare-products {
