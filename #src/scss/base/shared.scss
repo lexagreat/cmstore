@@ -209,3 +209,54 @@
       color: $black;
    }
 }
+
+.switch-button {
+   input {
+      display: none;
+   }
+   label {
+      width: fit-content;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      span {
+         color: $black;
+         @include body-bold;
+         user-select: none;
+      }
+   }
+   input:checked + label {
+      .switch-button {
+         &__box {
+            background-color: $black;
+         }
+         &__circle {
+            left: unset;
+            left: 100%;
+            translate: -100% 0;
+         }
+      }
+   }
+   &__box {
+      width: 52px;
+      height: 28px;
+      border: 2px solid $black;
+      background-color: $white;
+      position: relative;
+      transition: 0.3s;
+      border-radius: 100px;
+   }
+
+   &__circle {
+      border: 2px solid $black;
+      background-color: $white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      position: absolute;
+      left: -1px;
+      top: 0;
+      transition: 0.3s;
+   }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/head.html', {
+"title": "Контакты",
+})
+
+<body>
+   <div class="wrapper">
+      @@include('html/header.html', {})
+      <div class="profile-wrapper main">
+         <div class="container">
+            <div class="profile-wrapper__layout">
+               <aside class="profile-aside">
+                  <ul>
+                     <li>
+                        <a href="#">Мои данные</a>
+                     </li>
+                     <li>
+                        <a href="#">Список заказов</a>
+                     </li>
+                     <li>
+                        <a href="#">Избранное</a>
+                     </li>
+                     <li>
+                        <a href="#" class="active">Сравнение товаров</a>
+                     </li>
+                     <li>
+                        <a href="#">Обращения в поддержку</a>
+                     </li>
+                  </ul>
+                  <div class="profile-aside__footer">
+                     <a href="#" class="btn">Часто задаваемые вопросы</a>
+                  </div>
+               </aside>
+               <main class="profile-main">
+                  <section class="compare-empty">
+                     <h1 class="compare-empty__title profile-title">
+                        <span>Сравнение товаров</span>
+                        <a href="#">
+                           <img src="img/icons/left.svg" alt="">
+                           Сравнение товаров
+                        </a>
+                     </h1>
+                     <div class="compare-empty__content">
+                        <h4 class="compare-empty__subtitle">Нет товаров для сравнения</h4>
+                        <p class="compare-empty__text">Здесь пока ничего нет, но&nbsp;вы&nbsp;можете добавить несколько
+                           товаров и&nbsp;сравнить их&nbsp;характеристики, нажав&nbsp;на <a href="#"><img
+                                 src="img/icons/compare.svg" alt=""></a></p>
+                        <a href="#" class="compare-empty__link btn app-btn">В каталог</a>
+                     </div>
+                  </section>
+               </main>
+            </div>
+         </div>
+      </div>
+      @@include('html/footer.html', {})
+   </div>
+   <script src="https://unpkg.com/imask"></script>
+   <script src="js/app.js"></script>
+</body>
+
+</html>

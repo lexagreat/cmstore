@@ -1,0 +1,97 @@
+@import "compare";
+
+.profile-wrapper {
+   padding-bottom: 120px;
+   @media (max-width: 992px) {
+      padding-top: 120px;
+   }
+   @media (max-width: 768px) {
+      padding-bottom: 80px;
+      padding-top: 130px;
+   }
+   @media (max-width: 568px) {
+      padding-bottom: 42px;
+      padding-top: 120px;
+   }
+   &__layout {
+      display: flex;
+      gap: 20px;
+      @media (max-width: 1440px) {
+         gap: 16px;
+      }
+      @media (max-width: 1024px) {
+         gap: 12px;
+      }
+   }
+}
+.profile-aside {
+   flex: 0 0 246px;
+   ul {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #e1e1e3;
+      a {
+         display: flex;
+         align-items: center;
+         height: 48px;
+         @include body;
+         color: $black;
+         transition: 0.3s;
+         &.active {
+            color: #999999;
+         }
+         &:active {
+            color: #999999;
+         }
+         @media (hover: hover) {
+            &:hover {
+               color: #999999;
+            }
+         }
+      }
+   }
+   &__footer {
+      margin-top: 24px;
+      a {
+         height: 40px;
+         background-color: #f5f5f7;
+         padding: 0;
+         white-space: nowrap;
+         @include body-s;
+         color: $black;
+      }
+   }
+
+   @media (max-width: 1024px) {
+      flex: 0 0 231px;
+   }
+   @media (max-width: 992px) {
+      display: none;
+   }
+}
+.profile-title {
+   @include h0;
+   color: $black;
+   a {
+      display: none;
+      color: $black;
+      align-items: center;
+      gap: 8px;
+   }
+   @media (max-width: 992px) {
+      a {
+         display: flex;
+         font-size: 20px;
+         font-weight: 600;
+         line-height: calc(24 / 20);
+      }
+      span {
+         display: none;
+      }
+   }
+}
+.profile-main {
+   flex: 1;
+}

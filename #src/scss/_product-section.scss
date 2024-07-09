@@ -219,6 +219,7 @@
    }
 
    &__price {
+      white-space: nowrap;
       &.actual {
          font-size: 20px;
          font-weight: 800;
