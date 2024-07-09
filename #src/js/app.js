@@ -684,11 +684,117 @@ document.addEventListener("keydown", function (e) {
 
 function comparePage() {
    accordion(".compare-stat__header", ".compare-stat__main");
-
-   let desktopArray = [];
-   const stats = document.querySelectorAll(".compare-stat");
-   stats.forEach((item, index) => {
-      let swiper = new Swiper(`#stat${index} .swiper`, {
+   desktop();
+   tablet();
+   mobile();
+   function mobile() {
+      let mobileArr = [];
+      let mainArr = [];
+      document
+         .querySelectorAll(".compare-products .mobile .swiper")
+         .forEach((item, i) => {
+            let swiper = new Swiper(`#mobileSwiper${i}`, {
+               slidesPerView: 1,
+               spaceBetween: 12,
+               pagination: {
+                  el: `#mobileSwiper${i} .swiper-pagination`,
+                  clickable: true,
+                  renderCustom: function (swiper, current, total) {
+                     return current + " of " + total;
+                  },
+               },
+               on: {
+                  slideChange(swiper) {
+                     let temp = mobileArr.filter(
+                        (item, index) => !((index - i) % 2)
+                     );
+                     temp.forEach((item) => {
+                        item.slideTo(swiper.activeIndex);
+                     });
+                  },
+               },
+            });
+         });
+      const stats = document.querySelectorAll(".compare-stat");
+      stats.forEach((item, index) => {
+         const mobile = item.querySelector(".mobile");
+         mobile.querySelectorAll(".swiper").forEach((child, i) => {
+            let swiper = new Swiper(`#mobileInfo${i + index * 2}`, {
+               slidesPerView: 1,
+               spaceBetween: 12,
+            });
+            mobileArr.push(swiper);
+         });
+      });
+   }
+   function tablet() {
+      let tabletArray = [];
+      let tabletMainArray = [];
+      document
+         .querySelectorAll(".compare-products .tablet .swiper")
+         .forEach((item, i) => {
+            let swiper = new Swiper(`#tabletSwiper${i}`, {
+               slidesPerView: 1,
+               spaceBetween: 12,
+               pagination: {
+                  el: `#tabletSwiper${i} .swiper-pagination`,
+                  clickable: true,
+                  renderCustom: function (swiper, current, total) {
+                     return current + " of " + total;
+                  },
+               },
+               on: {
+                  slideChange(swiper) {
+                     let temp = tabletArray.filter(
+                        (item, index) => !((index - i) % 3)
+                     );
+                     temp.forEach((item) => {
+                        item.slideTo(swiper.activeIndex);
+                     });
+                     i > 2
+                        ? tabletMainArray[i - 3].slideTo(swiper.activeIndex)
+                        : tabletMainArray[i + 3].slideTo(swiper.activeIndex);
+                  },
+               },
+            });
+            tabletMainArray.push(swiper);
+         });
+      const stats = document.querySelectorAll(".compare-stat");
+      stats.forEach((item, index) => {
+         const tablet = item.querySelector(".tablet");
+         tablet.querySelectorAll(".swiper").forEach((child, i) => {
+            let swiper = new Swiper(`#tabletInfo${i + index * 3}`, {
+               slidesPerView: 1,
+               spaceBetween: 12,
+            });
+            tabletArray.push(swiper);
+         });
+      });
+      // const stickyTabletsSwipers = document.querySelectorAll('.compare-products .tablet .sticky-swiper')
+   }
+   function desktop() {
+      let desktopArray = [];
+      const stats = document.querySelectorAll(".compare-stat");
+      stats.forEach((item, index) => {
+         let swiper = new Swiper(`#stat${index} .desktop .swiper`, {
+            slidesPerView: 3,
+            spaceBetween: 8,
+            breakpoints: {
+               1400: {
+                  slidesPerView: 4,
+                  spaceBetween: 6,
+               },
+               993: {
+                  spaceBetween: 12,
+               },
+               659: {
+                  spaceBetween: 20,
+               },
+            },
+         });
+         desktopArray.push(swiper);
+      });
+      const desktopSwiper = new Swiper(".desktop .compare-products__swiper", {
          slidesPerView: 3,
          spaceBetween: 8,
          breakpoints: {
@@ -703,60 +809,43 @@ function comparePage() {
                spaceBetween: 20,
             },
          },
+         on: {
+            slideChange(swiper) {
+               let index = swiper.activeIndex;
+               desktopArray.forEach((item) => {
+                  item.slideTo(index);
+               });
+               desktopStickySwiper.slideTo(index);
+            },
+         },
       });
-      desktopArray.push(swiper);
-   });
 
-   const desktopSwiper = new Swiper(".desktop .compare-products__swiper", {
-      slidesPerView: 3,
-      spaceBetween: 8,
-      breakpoints: {
-         1400: {
-            slidesPerView: 4,
-            spaceBetween: 6,
+      const desktopStickySwiper = new Swiper(".desktop .sticky-swiper", {
+         slidesPerView: 3,
+         spaceBetween: 12,
+         breakpoints: {
+            1400: {
+               slidesPerView: 4,
+               spaceBetween: 12,
+            },
+            993: {
+               spaceBetween: 12,
+            },
+            659: {
+               spaceBetween: 20,
+            },
          },
-         993: {
-            spaceBetween: 12,
+         on: {
+            slideChange(swiper) {
+               let index = swiper.activeIndex;
+               desktopArray.forEach((item) => {
+                  item.slideTo(index);
+               });
+               desktopSwiper.slideTo(index);
+            },
          },
-         659: {
-            spaceBetween: 20,
-         },
-      },
-      on: {
-         slideChange(swiper) {
-            let index = swiper.activeIndex;
-            desktopArray.forEach((item) => {
-               item.slideTo(index);
-            });
-         },
-      },
-   });
-
-   const desktopStickySwiper = new Swiper(".desktop .sticky-swiper", {
-      slidesPerView: 3,
-      spaceBetween: 8,
-      breakpoints: {
-         1400: {
-            slidesPerView: 4,
-            spaceBetween: 6,
-         },
-         993: {
-            spaceBetween: 12,
-         },
-         659: {
-            spaceBetween: 20,
-         },
-      },
-      on: {
-         slideChange(swiper) {
-            let index = swiper.activeIndex;
-            desktopArray.forEach((item) => {
-               item.slideTo(index);
-            });
-         },
-      },
-   });
-
+      });
+   }
    let headerHeight = document
       .querySelector(".header")
       ?.getBoundingClientRect().height;
