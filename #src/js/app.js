@@ -689,7 +689,7 @@ function comparePage() {
    mobile();
    function mobile() {
       let mobileArr = [];
-      let mainArr = [];
+      let mobileMainArray = [];
       document
          .querySelectorAll(".compare-products .mobile .swiper")
          .forEach((item, i) => {
@@ -716,9 +716,13 @@ function comparePage() {
                            ".pagination .current"
                         ).innerHTML = swiper.activeIndex + 1;
                      }
+                     i > 1
+                        ? mobileMainArray[i - 2].slideTo(swiper.activeIndex)
+                        : mobileMainArray[i + 2].slideTo(swiper.activeIndex);
                   },
                },
             });
+            mobileMainArray.push(swiper);
          });
       const stats = document.querySelectorAll(".compare-stat");
       stats.forEach((item, index) => {

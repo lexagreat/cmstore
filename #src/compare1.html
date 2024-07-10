@@ -1,24 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta name="format-detection" content="telephone=no">
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet">
-   <link rel="stylesheet" href="css/style.css">
-   <title>Сравнение</title>
-</head>
+@@include('html/head.html', {
+"title": "Сравнение",
+})
 
 <body>
    <div class="wrapper">
-      <header class="header">
-</header>
+      @@include('html/header.html', {})
       <div class="profile-wrapper main">
          <div class="container">
             <div class="profile-wrapper__layout">
@@ -142,369 +130,43 @@
                                        </div>
                                     </div>
                                     <div class="swiper-slide">
-                                       <div class="product-card" id="product2">
-                                          <div class="product-card__header">
-                                             <ul class="product-card__hidden">
-                                                <li></li>
-                                                <li></li>
-                                             </ul>
-                                             <ul class="product-card__banners">
-                                                <li class="black">
-                                                   Черная Пятница
-                                                </li>
-                                                <li class="orange">
-                                                   Весенний розыгрыш
-                                                </li>
-                                                <li class="blue">
-                                                   Летняя распродажа
-                                                </li>
-                                             </ul>
-                                             <div class="product-card__slider swiper">
-                                                <div class="swiper-wrapper">
-                                                   <div class="swiper-slide">
-                                                      <img src="img/product/1.png" alt="">
-                                                   </div>
-                                                   <div class="swiper-slide">
-                                                      <img src="img/product/2.png" alt="">
-                                                   </div>
-                                                </div>
-                                                <div class="product-card__pagination"></div>
-                                             </div>
-                                          </div>
-                                          <div class="product-card__main">
-                                             <h5 class="product-card__title body-text">
-                                                Смартфон Apple iPhone 14 Plus 128 ГБ «тёмная ночь»
-                                             </h5>
-                                             <div class="product-card__info">
-                                                <span class="product-card__price actual">
-                                                   419 990 ₽
-                                                </span>
-                                             </div>
-                                             <div class="product-card__actions">
-                                                <button class="product-card__buy btn">
-                                                   <span>В корзину</span>
-                                                   <img src="img/icons/cart.svg" alt="">
-                                                </button>
-                                                <button class="product-card__like">
-                                                   <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
-                                                      xmlns="http://www.w3.org/2000/svg">
-                                                      <path
-                                                         d="M31.6607 12.5074C30.9236 10.6452 29.5164 9.2173 27.6979 8.48613C26.9116 8.17022 26.1152 8.0099 25.3317 8.0099C22.7257 8.0099 20.9024 9.73509 20.191 10.5439C19.4831 9.73232 17.6679 8 15.0627 8C14.2816 8 13.4876 8.15993 12.7025 8.47544C10.884 9.20661 9.47633 10.6345 8.73926 12.4963C7.95293 14.4831 8.0294 16.7348 8.94945 18.675C10.2559 21.4291 13.2258 25.7167 19.9556 30.5004L20.189 30.6667L20.4224 30.5004C27.1854 25.693 30.1521 21.4215 31.4497 18.6849C32.3706 16.7455 32.447 14.4938 31.6607 12.5074Z"
-                                                         stroke="#999999" stroke-width="2" stroke-linejoin="round" />
-                                                   </svg>
+                                       <button class="compare-empty">
+                                          <div class="compare-empty__icon">
+                                             <svg width="23" height="24" viewBox="0 0 23 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.5 2V22M21.5 12L1.5 12" stroke="#999999" stroke-width="3"
+                                                   stroke-linecap="round" />
+                                             </svg>
 
-                                                </button>
-                                                <button class="product-card__share">
-                                                   <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                                      xmlns="http://www.w3.org/2000/svg">
-                                                      <path
-                                                         d="M29.3327 13.3333H10.666M13.9602 13.3333C14.0216 13.3333 14.0522 13.3333 14.0801 13.3324C14.9842 13.3046 15.7819 12.6065 16.0895 11.5737C16.099 11.5419 16.1087 11.5066 16.1281 11.4359L16.2347 11.0475C16.3257 10.716 16.3712 10.5503 16.4316 10.4095C16.6724 9.84801 17.1179 9.4581 17.6327 9.35827C17.7617 9.33325 17.9056 9.33325 18.1934 9.33325H21.8054C22.0932 9.33325 22.237 9.33325 22.3661 9.35827C22.8809 9.4581 23.3264 9.84801 23.5672 10.4095C23.6276 10.5503 23.6731 10.716 23.7641 11.0475L23.8707 11.4359C23.89 11.5062 23.8998 11.542 23.9093 11.5737C24.2169 12.6065 25.0146 13.3046 25.9187 13.3324C25.9465 13.3333 25.9772 13.3333 26.0386 13.3333"
-                                                         stroke="#999999" stroke-width="2" stroke-linecap="round"
-                                                         stroke-linejoin="round" />
-                                                      <path
-                                                         d="M13.334 16L14.1511 28.5833C14.2274 29.7589 15.0549 30.6667 16.0502 30.6667H23.9511C24.9464 30.6667 25.7739 29.7589 25.8502 28.5833L26.6673 16"
-                                                         stroke="#999999" stroke-width="2" stroke-linecap="round"
-                                                         stroke-linejoin="round" />
-                                                   </svg>
-                                                </button>
-                                             </div>
                                           </div>
-                                       </div>
+                                          <p class="compare-empty__text">Добавить товар для сравнения</p>
+                                       </button>
                                     </div>
                                     <div class="swiper-slide">
-                                       <div class="product-card" id="product3">
-                                          <div class="product-card__header">
-                                             <ul class="product-card__hidden">
-                                                <li></li>
-                                                <li></li>
-                                             </ul>
-                                             <ul class="product-card__banners">
-                                                <li class="black">
-                                                   Черная Пятница
-                                                </li>
-                                                <li class="orange">
-                                                   Весенний розыгрыш
-                                                </li>
-                                                <li class="blue">
-                                                   Летняя распродажа
-                                                </li>
-                                             </ul>
-                                             <div class="product-card__slider swiper">
-                                                <div class="swiper-wrapper">
-                                                   <div class="swiper-slide">
-                                                      <img src="img/product/1.png" alt="">
-                                                   </div>
-                                                   <div class="swiper-slide">
-                                                      <img src="img/product/2.png" alt="">
-                                                   </div>
-                                                </div>
-                                                <div class="product-card__pagination"></div>
-                                             </div>
-                                          </div>
-                                          <div class="product-card__main">
-                                             <h5 class="product-card__title body-text">
-                                                Смартфон Apple iPhone 14 Plus 128 ГБ «тёмная ночь»
-                                             </h5>
-                                             <div class="product-card__info">
-                                                <span class="product-card__price actual">
-                                                   419 990 ₽
-                                                </span>
-                                             </div>
-                                             <div class="product-card__actions">
-                                                <button class="product-card__buy btn">
-                                                   <span>В корзину</span>
-                                                   <img src="img/icons/cart.svg" alt="">
-                                                </button>
-                                                <button class="product-card__like">
-                                                   <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
-                                                      xmlns="http://www.w3.org/2000/svg">
-                                                      <path
-                                                         d="M31.6607 12.5074C30.9236 10.6452 29.5164 9.2173 27.6979 8.48613C26.9116 8.17022 26.1152 8.0099 25.3317 8.0099C22.7257 8.0099 20.9024 9.73509 20.191 10.5439C19.4831 9.73232 17.6679 8 15.0627 8C14.2816 8 13.4876 8.15993 12.7025 8.47544C10.884 9.20661 9.47633 10.6345 8.73926 12.4963C7.95293 14.4831 8.0294 16.7348 8.94945 18.675C10.2559 21.4291 13.2258 25.7167 19.9556 30.5004L20.189 30.6667L20.4224 30.5004C27.1854 25.693 30.1521 21.4215 31.4497 18.6849C32.3706 16.7455 32.447 14.4938 31.6607 12.5074Z"
-                                                         stroke="#999999" stroke-width="2" stroke-linejoin="round" />
-                                                   </svg>
+                                       <button class="compare-empty">
+                                          <div class="compare-empty__icon">
+                                             <svg width="23" height="24" viewBox="0 0 23 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.5 2V22M21.5 12L1.5 12" stroke="#999999" stroke-width="3"
+                                                   stroke-linecap="round" />
+                                             </svg>
 
-                                                </button>
-                                                <button class="product-card__share">
-                                                   <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                                      xmlns="http://www.w3.org/2000/svg">
-                                                      <path
-                                                         d="M29.3327 13.3333H10.666M13.9602 13.3333C14.0216 13.3333 14.0522 13.3333 14.0801 13.3324C14.9842 13.3046 15.7819 12.6065 16.0895 11.5737C16.099 11.5419 16.1087 11.5066 16.1281 11.4359L16.2347 11.0475C16.3257 10.716 16.3712 10.5503 16.4316 10.4095C16.6724 9.84801 17.1179 9.4581 17.6327 9.35827C17.7617 9.33325 17.9056 9.33325 18.1934 9.33325H21.8054C22.0932 9.33325 22.237 9.33325 22.3661 9.35827C22.8809 9.4581 23.3264 9.84801 23.5672 10.4095C23.6276 10.5503 23.6731 10.716 23.7641 11.0475L23.8707 11.4359C23.89 11.5062 23.8998 11.542 23.9093 11.5737C24.2169 12.6065 25.0146 13.3046 25.9187 13.3324C25.9465 13.3333 25.9772 13.3333 26.0386 13.3333"
-                                                         stroke="#999999" stroke-width="2" stroke-linecap="round"
-                                                         stroke-linejoin="round" />
-                                                      <path
-                                                         d="M13.334 16L14.1511 28.5833C14.2274 29.7589 15.0549 30.6667 16.0502 30.6667H23.9511C24.9464 30.6667 25.7739 29.7589 25.8502 28.5833L26.6673 16"
-                                                         stroke="#999999" stroke-width="2" stroke-linecap="round"
-                                                         stroke-linejoin="round" />
-                                                   </svg>
-                                                </button>
-                                             </div>
                                           </div>
-                                       </div>
+                                          <p class="compare-empty__text">Добавить товар для сравнения</p>
+                                       </button>
                                     </div>
                                     <div class="swiper-slide">
-                                       <div class="product-card" id="product4">
-                                          <div class="product-card__header">
-                                             <ul class="product-card__hidden">
-                                                <li></li>
-                                                <li></li>
-                                             </ul>
-                                             <ul class="product-card__banners">
-                                                <li class="black">
-                                                   Черная Пятница
-                                                </li>
-                                                <li class="orange">
-                                                   Весенний розыгрыш
-                                                </li>
-                                                <li class="blue">
-                                                   Летняя распродажа
-                                                </li>
-                                             </ul>
-                                             <div class="product-card__slider swiper">
-                                                <div class="swiper-wrapper">
-                                                   <div class="swiper-slide">
-                                                      <img src="img/product/1.png" alt="">
-                                                   </div>
-                                                   <div class="swiper-slide">
-                                                      <img src="img/product/2.png" alt="">
-                                                   </div>
-                                                </div>
-                                                <div class="product-card__pagination"></div>
-                                             </div>
-                                          </div>
-                                          <div class="product-card__main">
-                                             <h5 class="product-card__title body-text">
-                                                Смартфон Apple iPhone 14 Plus 128 ГБ «тёмная ночь»
-                                             </h5>
-                                             <div class="product-card__info">
-                                                <span class="product-card__price actual">
-                                                   419 990 ₽
-                                                </span>
-                                                <div class="product-card__small">
-                                                   <span class="product-card__price actual old">449 990</span>
-                                                   <div class="product-card__sale">-70%</div>
-                                                </div>
-                                                <button class="product-card__hint">
-                                                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                                      xmlns="http://www.w3.org/2000/svg">
-                                                      <path
-                                                         d="M7.19995 7.18392C7.19995 6.97175 7.28424 6.76827 7.43427 6.61824C7.5843 6.46821 7.78778 6.38392 7.99995 6.38392C8.21212 6.38392 8.41561 6.46821 8.56564 6.61824C8.71567 6.76827 8.79995 6.97175 8.79995 7.18392V11.9839C8.79995 12.1961 8.71567 12.3996 8.56564 12.5496C8.41561 12.6996 8.21212 12.7839 7.99995 12.7839C7.78778 12.7839 7.5843 12.6996 7.43427 12.5496C7.28424 12.3996 7.19995 12.1961 7.19995 11.9839V7.18392ZM7.99995 3.24072C7.78778 3.24072 7.5843 3.32501 7.43427 3.47504C7.28424 3.62507 7.19995 3.82855 7.19995 4.04072C7.19995 4.2529 7.28424 4.45638 7.43427 4.60641C7.5843 4.75644 7.78778 4.84072 7.99995 4.84072C8.21212 4.84072 8.41561 4.75644 8.56564 4.60641C8.71567 4.45638 8.79995 4.2529 8.79995 4.04072C8.79995 3.82855 8.71567 3.62507 8.56564 3.47504C8.41561 3.32501 8.21212 3.24072 7.99995 3.24072Z"
-                                                         fill="#999999" />
-                                                      <path fill-rule="evenodd" clip-rule="evenodd"
-                                                         d="M8 0C3.5816 0 0 3.5816 0 8C0 12.4184 3.5816 16 8 16C12.4184 16 16 12.4184 16 8C16 3.5816 12.4184 0 8 0ZM1.6 8C1.6 9.69739 2.27428 11.3253 3.47452 12.5255C4.67475 13.7257 6.30261 14.4 8 14.4C9.69739 14.4 11.3253 13.7257 12.5255 12.5255C13.7257 11.3253 14.4 9.69739 14.4 8C14.4 6.30261 13.7257 4.67475 12.5255 3.47452C11.3253 2.27428 9.69739 1.6 8 1.6C6.30261 1.6 4.67475 2.27428 3.47452 3.47452C2.27428 4.67475 1.6 6.30261 1.6 8Z"
-                                                         fill="#999999" />
-                                                   </svg>
-                                                </button>
-                                             </div>
-                                             <div class="product-card__actions">
-                                                <button class="product-card__buy btn">
-                                                   <span>В корзину</span>
-                                                   <img src="img/icons/cart.svg" alt="">
-                                                </button>
-                                                <button class="product-card__like">
-                                                   <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
-                                                      xmlns="http://www.w3.org/2000/svg">
-                                                      <path
-                                                         d="M31.6607 12.5074C30.9236 10.6452 29.5164 9.2173 27.6979 8.48613C26.9116 8.17022 26.1152 8.0099 25.3317 8.0099C22.7257 8.0099 20.9024 9.73509 20.191 10.5439C19.4831 9.73232 17.6679 8 15.0627 8C14.2816 8 13.4876 8.15993 12.7025 8.47544C10.884 9.20661 9.47633 10.6345 8.73926 12.4963C7.95293 14.4831 8.0294 16.7348 8.94945 18.675C10.2559 21.4291 13.2258 25.7167 19.9556 30.5004L20.189 30.6667L20.4224 30.5004C27.1854 25.693 30.1521 21.4215 31.4497 18.6849C32.3706 16.7455 32.447 14.4938 31.6607 12.5074Z"
-                                                         stroke="#999999" stroke-width="2" stroke-linejoin="round" />
-                                                   </svg>
+                                       <button class="compare-empty">
+                                          <div class="compare-empty__icon">
+                                             <svg width="23" height="24" viewBox="0 0 23 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.5 2V22M21.5 12L1.5 12" stroke="#999999" stroke-width="3"
+                                                   stroke-linecap="round" />
+                                             </svg>
 
-                                                </button>
-                                                <button class="product-card__share">
-                                                   <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                                      xmlns="http://www.w3.org/2000/svg">
-                                                      <path
-                                                         d="M29.3327 13.3333H10.666M13.9602 13.3333C14.0216 13.3333 14.0522 13.3333 14.0801 13.3324C14.9842 13.3046 15.7819 12.6065 16.0895 11.5737C16.099 11.5419 16.1087 11.5066 16.1281 11.4359L16.2347 11.0475C16.3257 10.716 16.3712 10.5503 16.4316 10.4095C16.6724 9.84801 17.1179 9.4581 17.6327 9.35827C17.7617 9.33325 17.9056 9.33325 18.1934 9.33325H21.8054C22.0932 9.33325 22.237 9.33325 22.3661 9.35827C22.8809 9.4581 23.3264 9.84801 23.5672 10.4095C23.6276 10.5503 23.6731 10.716 23.7641 11.0475L23.8707 11.4359C23.89 11.5062 23.8998 11.542 23.9093 11.5737C24.2169 12.6065 25.0146 13.3046 25.9187 13.3324C25.9465 13.3333 25.9772 13.3333 26.0386 13.3333"
-                                                         stroke="#999999" stroke-width="2" stroke-linecap="round"
-                                                         stroke-linejoin="round" />
-                                                      <path
-                                                         d="M13.334 16L14.1511 28.5833C14.2274 29.7589 15.0549 30.6667 16.0502 30.6667H23.9511C24.9464 30.6667 25.7739 29.7589 25.8502 28.5833L26.6673 16"
-                                                         stroke="#999999" stroke-width="2" stroke-linecap="round"
-                                                         stroke-linejoin="round" />
-                                                   </svg>
-                                                </button>
-                                             </div>
                                           </div>
-                                       </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                       <div class="product-card" id="product5">
-                                          <div class="product-card__header">
-                                             <ul class="product-card__hidden">
-                                                <li></li>
-                                                <li></li>
-                                             </ul>
-                                             <ul class="product-card__banners">
-                                                <li class="black">
-                                                   Черная Пятница
-                                                </li>
-                                                <li class="orange">
-                                                   Весенний розыгрыш
-                                                </li>
-                                                <li class="blue">
-                                                   Летняя распродажа
-                                                </li>
-                                             </ul>
-                                             <div class="product-card__slider swiper">
-                                                <div class="swiper-wrapper">
-                                                   <div class="swiper-slide">
-                                                      <img src="img/product/1.png" alt="">
-                                                   </div>
-                                                   <div class="swiper-slide">
-                                                      <img src="img/product/2.png" alt="">
-                                                   </div>
-                                                </div>
-                                                <div class="product-card__pagination"></div>
-                                             </div>
-                                          </div>
-                                          <div class="product-card__main">
-                                             <h5 class="product-card__title body-text">
-                                                Смартфон Apple iPhone 14 Plus 128 ГБ «тёмная ночь»
-                                             </h5>
-                                             <div class="product-card__info">
-                                                <span class="product-card__price actual">
-                                                   419 990 ₽
-                                                </span>
-                                             </div>
-                                             <div class="product-card__actions">
-                                                <button class="product-card__buy btn">
-                                                   <span>В корзину</span>
-                                                   <img src="img/icons/cart.svg" alt="">
-                                                </button>
-                                                <button class="product-card__like">
-                                                   <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
-                                                      xmlns="http://www.w3.org/2000/svg">
-                                                      <path
-                                                         d="M31.6607 12.5074C30.9236 10.6452 29.5164 9.2173 27.6979 8.48613C26.9116 8.17022 26.1152 8.0099 25.3317 8.0099C22.7257 8.0099 20.9024 9.73509 20.191 10.5439C19.4831 9.73232 17.6679 8 15.0627 8C14.2816 8 13.4876 8.15993 12.7025 8.47544C10.884 9.20661 9.47633 10.6345 8.73926 12.4963C7.95293 14.4831 8.0294 16.7348 8.94945 18.675C10.2559 21.4291 13.2258 25.7167 19.9556 30.5004L20.189 30.6667L20.4224 30.5004C27.1854 25.693 30.1521 21.4215 31.4497 18.6849C32.3706 16.7455 32.447 14.4938 31.6607 12.5074Z"
-                                                         stroke="#999999" stroke-width="2" stroke-linejoin="round" />
-                                                   </svg>
-
-                                                </button>
-                                                <button class="product-card__share">
-                                                   <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                                      xmlns="http://www.w3.org/2000/svg">
-                                                      <path
-                                                         d="M29.3327 13.3333H10.666M13.9602 13.3333C14.0216 13.3333 14.0522 13.3333 14.0801 13.3324C14.9842 13.3046 15.7819 12.6065 16.0895 11.5737C16.099 11.5419 16.1087 11.5066 16.1281 11.4359L16.2347 11.0475C16.3257 10.716 16.3712 10.5503 16.4316 10.4095C16.6724 9.84801 17.1179 9.4581 17.6327 9.35827C17.7617 9.33325 17.9056 9.33325 18.1934 9.33325H21.8054C22.0932 9.33325 22.237 9.33325 22.3661 9.35827C22.8809 9.4581 23.3264 9.84801 23.5672 10.4095C23.6276 10.5503 23.6731 10.716 23.7641 11.0475L23.8707 11.4359C23.89 11.5062 23.8998 11.542 23.9093 11.5737C24.2169 12.6065 25.0146 13.3046 25.9187 13.3324C25.9465 13.3333 25.9772 13.3333 26.0386 13.3333"
-                                                         stroke="#999999" stroke-width="2" stroke-linecap="round"
-                                                         stroke-linejoin="round" />
-                                                      <path
-                                                         d="M13.334 16L14.1511 28.5833C14.2274 29.7589 15.0549 30.6667 16.0502 30.6667H23.9511C24.9464 30.6667 25.7739 29.7589 25.8502 28.5833L26.6673 16"
-                                                         stroke="#999999" stroke-width="2" stroke-linecap="round"
-                                                         stroke-linejoin="round" />
-                                                   </svg>
-                                                </button>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                       <div class="product-card" id="product6">
-                                          <div class="product-card__header">
-                                             <ul class="product-card__hidden">
-                                                <li></li>
-                                                <li></li>
-                                             </ul>
-                                             <ul class="product-card__banners">
-                                                <li class="black">
-                                                   Черная Пятница
-                                                </li>
-                                                <li class="orange">
-                                                   Весенний розыгрыш
-                                                </li>
-                                                <li class="blue">
-                                                   Летняя распродажа
-                                                </li>
-                                             </ul>
-                                             <div class="product-card__slider swiper">
-                                                <div class="swiper-wrapper">
-                                                   <div class="swiper-slide">
-                                                      <img src="img/product/1.png" alt="">
-                                                   </div>
-                                                   <div class="swiper-slide">
-                                                      <img src="img/product/2.png" alt="">
-                                                   </div>
-                                                </div>
-                                                <div class="product-card__pagination"></div>
-                                             </div>
-                                          </div>
-                                          <div class="product-card__main">
-                                             <h5 class="product-card__title body-text">
-                                                Смартфон Apple iPhone 14 Plus 128 ГБ «тёмная ночь»
-                                             </h5>
-                                             <div class="product-card__info">
-                                                <span class="product-card__price actual">
-                                                   419 990 ₽
-                                                </span>
-                                             </div>
-                                             <div class="product-card__actions">
-                                                <button class="product-card__buy btn">
-                                                   <span>В корзину</span>
-                                                   <img src="img/icons/cart.svg" alt="">
-                                                </button>
-                                                <button class="product-card__like">
-                                                   <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
-                                                      xmlns="http://www.w3.org/2000/svg">
-                                                      <path
-                                                         d="M31.6607 12.5074C30.9236 10.6452 29.5164 9.2173 27.6979 8.48613C26.9116 8.17022 26.1152 8.0099 25.3317 8.0099C22.7257 8.0099 20.9024 9.73509 20.191 10.5439C19.4831 9.73232 17.6679 8 15.0627 8C14.2816 8 13.4876 8.15993 12.7025 8.47544C10.884 9.20661 9.47633 10.6345 8.73926 12.4963C7.95293 14.4831 8.0294 16.7348 8.94945 18.675C10.2559 21.4291 13.2258 25.7167 19.9556 30.5004L20.189 30.6667L20.4224 30.5004C27.1854 25.693 30.1521 21.4215 31.4497 18.6849C32.3706 16.7455 32.447 14.4938 31.6607 12.5074Z"
-                                                         stroke="#999999" stroke-width="2" stroke-linejoin="round" />
-                                                   </svg>
-
-                                                </button>
-                                                <button class="product-card__share">
-                                                   <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                                      xmlns="http://www.w3.org/2000/svg">
-                                                      <path
-                                                         d="M29.3327 13.3333H10.666M13.9602 13.3333C14.0216 13.3333 14.0522 13.3333 14.0801 13.3324C14.9842 13.3046 15.7819 12.6065 16.0895 11.5737C16.099 11.5419 16.1087 11.5066 16.1281 11.4359L16.2347 11.0475C16.3257 10.716 16.3712 10.5503 16.4316 10.4095C16.6724 9.84801 17.1179 9.4581 17.6327 9.35827C17.7617 9.33325 17.9056 9.33325 18.1934 9.33325H21.8054C22.0932 9.33325 22.237 9.33325 22.3661 9.35827C22.8809 9.4581 23.3264 9.84801 23.5672 10.4095C23.6276 10.5503 23.6731 10.716 23.7641 11.0475L23.8707 11.4359C23.89 11.5062 23.8998 11.542 23.9093 11.5737C24.2169 12.6065 25.0146 13.3046 25.9187 13.3324C25.9465 13.3333 25.9772 13.3333 26.0386 13.3333"
-                                                         stroke="#999999" stroke-width="2" stroke-linecap="round"
-                                                         stroke-linejoin="round" />
-                                                      <path
-                                                         d="M13.334 16L14.1511 28.5833C14.2274 29.7589 15.0549 30.6667 16.0502 30.6667H23.9511C24.9464 30.6667 25.7739 29.7589 25.8502 28.5833L26.6673 16"
-                                                         stroke="#999999" stroke-width="2" stroke-linecap="round"
-                                                         stroke-linejoin="round" />
-                                                   </svg>
-                                                </button>
-                                             </div>
-                                          </div>
-                                       </div>
+                                          <p class="compare-empty__text">Добавить товар для сравнения</p>
+                                       </button>
                                     </div>
                                  </div>
                                  <div class="compare-products__nav compare-products__nav_prev slider-btn">
@@ -524,7 +186,7 @@
 
                                  </div>
                               </div>
-                              <div class="sticky-swiper swiper">
+                              <!-- <div class="sticky-swiper swiper" >
                                  <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                        <div class="sticky-product">
@@ -605,12 +267,224 @@
                                        </div>
                                     </div>
                                  </div>
-                              </div>
+                              </div> -->
                            </div>
                            <div class="tablet">
                               <div class="swiper" id="tabletSwiper0">
                                  <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
+                                    <div class="swiper-wrapper">
+                                       <div class="swiper-slide">
+                                          <div class="product-card" id="product3001">
+                                             <div class="product-card__header">
+                                                <ul class="product-card__hidden">
+                                                   <li></li>
+                                                   <li></li>
+                                                </ul>
+                                                <ul class="product-card__banners">
+                                                   <li class="black">
+                                                      Черная Пятница
+                                                   </li>
+                                                   <li class="orange">
+                                                      Весенний розыгрыш
+                                                   </li>
+                                                   <li class="blue">
+                                                      Летняя распродажа
+                                                   </li>
+                                                </ul>
+                                                <div class="product-card__slider swiper">
+                                                   <div class="swiper-wrapper">
+                                                      <div class="swiper-slide">
+                                                         <img src="img/product/1.png" alt="">
+                                                      </div>
+                                                      <div class="swiper-slide">
+                                                         <img src="img/product/2.png" alt="">
+                                                      </div>
+                                                   </div>
+                                                   <div class="product-card__pagination"></div>
+                                                </div>
+                                             </div>
+                                             <div class="product-card__main">
+                                                <h5 class="product-card__title body-text">
+                                                   Смартфон Apple iPhone 14 Plus 128 ГБ «тёмная ночь»
+                                                </h5>
+                                                <div class="product-card__info">
+                                                   <span class="product-card__price actual">
+                                                      419 990 ₽
+                                                   </span>
+                                                </div>
+                                                <div class="product-card__actions">
+                                                   <button class="product-card__buy btn">
+                                                      <span>В корзину</span>
+                                                      <img src="img/icons/cart.svg" alt="">
+                                                   </button>
+                                                   <button class="product-card__like">
+                                                      <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                         <path
+                                                            d="M31.6607 12.5074C30.9236 10.6452 29.5164 9.2173 27.6979 8.48613C26.9116 8.17022 26.1152 8.0099 25.3317 8.0099C22.7257 8.0099 20.9024 9.73509 20.191 10.5439C19.4831 9.73232 17.6679 8 15.0627 8C14.2816 8 13.4876 8.15993 12.7025 8.47544C10.884 9.20661 9.47633 10.6345 8.73926 12.4963C7.95293 14.4831 8.0294 16.7348 8.94945 18.675C10.2559 21.4291 13.2258 25.7167 19.9556 30.5004L20.189 30.6667L20.4224 30.5004C27.1854 25.693 30.1521 21.4215 31.4497 18.6849C32.3706 16.7455 32.447 14.4938 31.6607 12.5074Z"
+                                                            stroke="#999999" stroke-width="2" stroke-linejoin="round" />
+                                                      </svg>
+
+                                                   </button>
+                                                   <button class="product-card__share">
+                                                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                         <path
+                                                            d="M29.3327 13.3333H10.666M13.9602 13.3333C14.0216 13.3333 14.0522 13.3333 14.0801 13.3324C14.9842 13.3046 15.7819 12.6065 16.0895 11.5737C16.099 11.5419 16.1087 11.5066 16.1281 11.4359L16.2347 11.0475C16.3257 10.716 16.3712 10.5503 16.4316 10.4095C16.6724 9.84801 17.1179 9.4581 17.6327 9.35827C17.7617 9.33325 17.9056 9.33325 18.1934 9.33325H21.8054C22.0932 9.33325 22.237 9.33325 22.3661 9.35827C22.8809 9.4581 23.3264 9.84801 23.5672 10.4095C23.6276 10.5503 23.6731 10.716 23.7641 11.0475L23.8707 11.4359C23.89 11.5062 23.8998 11.542 23.9093 11.5737C24.2169 12.6065 25.0146 13.3046 25.9187 13.3324C25.9465 13.3333 25.9772 13.3333 26.0386 13.3333"
+                                                            stroke="#999999" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                         <path
+                                                            d="M13.334 16L14.1511 28.5833C14.2274 29.7589 15.0549 30.6667 16.0502 30.6667H23.9511C24.9464 30.6667 25.7739 29.7589 25.8502 28.5833L26.6673 16"
+                                                            stroke="#999999" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                      </svg>
+                                                   </button>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <!-- <div class="swiper-slide">
+                                          <div class="product-card" id="product4002">
+                                             <div class="product-card__header">
+                                                <ul class="product-card__hidden">
+                                                   <li></li>
+                                                   <li></li>
+                                                </ul>
+                                                <ul class="product-card__banners">
+                                                   <li class="black">
+                                                      Черная Пятница
+                                                   </li>
+                                                   <li class="orange">
+                                                      Весенний розыгрыш
+                                                   </li>
+                                                   <li class="blue">
+                                                      Летняя распродажа
+                                                   </li>
+                                                </ul>
+                                                <div class="product-card__slider swiper">
+                                                   <div class="swiper-wrapper">
+                                                      <div class="swiper-slide">
+                                                         <img src="img/product/1.png" alt="">
+                                                      </div>
+                                                      <div class="swiper-slide">
+                                                         <img src="img/product/2.png" alt="">
+                                                      </div>
+                                                   </div>
+                                                   <div class="product-card__pagination"></div>
+                                                </div>
+                                             </div>
+                                             <div class="product-card__main">
+                                                <h5 class="product-card__title body-text">
+                                                   Смартфон Apple iPhone 14 Plus 128 ГБ «тёмная ночь»
+                                                </h5>
+                                                <div class="product-card__info">
+                                                   <span class="product-card__price actual">
+                                                      419 990 ₽
+                                                   </span>
+                                                </div>
+                                                <div class="product-card__actions">
+                                                   <button class="product-card__buy btn">
+                                                      <span>В корзину</span>
+                                                      <img src="img/icons/cart.svg" alt="">
+                                                   </button>
+                                                   <button class="product-card__like">
+                                                      <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                         <path
+                                                            d="M31.6607 12.5074C30.9236 10.6452 29.5164 9.2173 27.6979 8.48613C26.9116 8.17022 26.1152 8.0099 25.3317 8.0099C22.7257 8.0099 20.9024 9.73509 20.191 10.5439C19.4831 9.73232 17.6679 8 15.0627 8C14.2816 8 13.4876 8.15993 12.7025 8.47544C10.884 9.20661 9.47633 10.6345 8.73926 12.4963C7.95293 14.4831 8.0294 16.7348 8.94945 18.675C10.2559 21.4291 13.2258 25.7167 19.9556 30.5004L20.189 30.6667L20.4224 30.5004C27.1854 25.693 30.1521 21.4215 31.4497 18.6849C32.3706 16.7455 32.447 14.4938 31.6607 12.5074Z"
+                                                            stroke="#999999" stroke-width="2" stroke-linejoin="round" />
+                                                      </svg>
+   
+                                                   </button>
+                                                   <button class="product-card__share">
+                                                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                         <path
+                                                            d="M29.3327 13.3333H10.666M13.9602 13.3333C14.0216 13.3333 14.0522 13.3333 14.0801 13.3324C14.9842 13.3046 15.7819 12.6065 16.0895 11.5737C16.099 11.5419 16.1087 11.5066 16.1281 11.4359L16.2347 11.0475C16.3257 10.716 16.3712 10.5503 16.4316 10.4095C16.6724 9.84801 17.1179 9.4581 17.6327 9.35827C17.7617 9.33325 17.9056 9.33325 18.1934 9.33325H21.8054C22.0932 9.33325 22.237 9.33325 22.3661 9.35827C22.8809 9.4581 23.3264 9.84801 23.5672 10.4095C23.6276 10.5503 23.6731 10.716 23.7641 11.0475L23.8707 11.4359C23.89 11.5062 23.8998 11.542 23.9093 11.5737C24.2169 12.6065 25.0146 13.3046 25.9187 13.3324C25.9465 13.3333 25.9772 13.3333 26.0386 13.3333"
+                                                            stroke="#999999" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                         <path
+                                                            d="M13.334 16L14.1511 28.5833C14.2274 29.7589 15.0549 30.6667 16.0502 30.6667H23.9511C24.9464 30.6667 25.7739 29.7589 25.8502 28.5833L26.6673 16"
+                                                            stroke="#999999" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                      </svg>
+                                                   </button>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="swiper-slide">
+                                          <div class="product-card" id="product1001">
+                                             <div class="product-card__header">
+                                                <ul class="product-card__hidden">
+                                                   <li></li>
+                                                   <li></li>
+                                                </ul>
+                                                <ul class="product-card__banners">
+                                                   <li class="black">
+                                                      Черная Пятница
+                                                   </li>
+                                                   <li class="orange">
+                                                      Весенний розыгрыш
+                                                   </li>
+                                                   <li class="blue">
+                                                      Летняя распродажа
+                                                   </li>
+                                                </ul>
+                                                <div class="product-card__slider swiper">
+                                                   <div class="swiper-wrapper">
+                                                      <div class="swiper-slide">
+                                                         <img src="img/product/1.png" alt="">
+                                                      </div>
+                                                      <div class="swiper-slide">
+                                                         <img src="img/product/2.png" alt="">
+                                                      </div>
+                                                   </div>
+                                                   <div class="product-card__pagination"></div>
+                                                </div>
+                                             </div>
+                                             <div class="product-card__main">
+                                                <h5 class="product-card__title body-text">
+                                                   Смартфон Apple iPhone 14 Plus 128 ГБ «тёмная ночь»
+                                                </h5>
+                                                <div class="product-card__info">
+                                                   <span class="product-card__price actual">
+                                                      419 990 ₽
+                                                   </span>
+                                                </div>
+                                                <div class="product-card__actions">
+                                                   <button class="product-card__buy btn">
+                                                      <span>В корзину</span>
+                                                      <img src="img/icons/cart.svg" alt="">
+                                                   </button>
+                                                   <button class="product-card__like">
+                                                      <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                         <path
+                                                            d="M31.6607 12.5074C30.9236 10.6452 29.5164 9.2173 27.6979 8.48613C26.9116 8.17022 26.1152 8.0099 25.3317 8.0099C22.7257 8.0099 20.9024 9.73509 20.191 10.5439C19.4831 9.73232 17.6679 8 15.0627 8C14.2816 8 13.4876 8.15993 12.7025 8.47544C10.884 9.20661 9.47633 10.6345 8.73926 12.4963C7.95293 14.4831 8.0294 16.7348 8.94945 18.675C10.2559 21.4291 13.2258 25.7167 19.9556 30.5004L20.189 30.6667L20.4224 30.5004C27.1854 25.693 30.1521 21.4215 31.4497 18.6849C32.3706 16.7455 32.447 14.4938 31.6607 12.5074Z"
+                                                            stroke="#999999" stroke-width="2" stroke-linejoin="round" />
+                                                      </svg>
+   
+                                                   </button>
+                                                   <button class="product-card__share">
+                                                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                         <path
+                                                            d="M29.3327 13.3333H10.666M13.9602 13.3333C14.0216 13.3333 14.0522 13.3333 14.0801 13.3324C14.9842 13.3046 15.7819 12.6065 16.0895 11.5737C16.099 11.5419 16.1087 11.5066 16.1281 11.4359L16.2347 11.0475C16.3257 10.716 16.3712 10.5503 16.4316 10.4095C16.6724 9.84801 17.1179 9.4581 17.6327 9.35827C17.7617 9.33325 17.9056 9.33325 18.1934 9.33325H21.8054C22.0932 9.33325 22.237 9.33325 22.3661 9.35827C22.8809 9.4581 23.3264 9.84801 23.5672 10.4095C23.6276 10.5503 23.6731 10.716 23.7641 11.0475L23.8707 11.4359C23.89 11.5062 23.8998 11.542 23.9093 11.5737C24.2169 12.6065 25.0146 13.3046 25.9187 13.3324C25.9465 13.3333 25.9772 13.3333 26.0386 13.3333"
+                                                            stroke="#999999" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                         <path
+                                                            d="M13.334 16L14.1511 28.5833C14.2274 29.7589 15.0549 30.6667 16.0502 30.6667H23.9511C24.9464 30.6667 25.7739 29.7589 25.8502 28.5833L26.6673 16"
+                                                            stroke="#999999" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                      </svg>
+                                                   </button>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div> -->
+                                    </div>
+                                    <!-- <div class="swiper-slide">
                                        <div class="product-card" id="product1000">
                                           <div class="product-card__header">
                                              <ul class="product-card__hidden">
@@ -819,20 +693,33 @@
                                              </div>
                                           </div>
                                        </div>
-                                    </div>
+                                    </div> -->
                                  </div>
-                                 <div class="pagination">
+                                 <!-- <div class="pagination">
                                     <div>
                                        <span class="current">1</span>
                                        <span>товар из</span>
                                        <span class="total">3</span>
                                     </div>
                                     <div class="swiper-pagination"></div>
-                                 </div>
+                                 </div> -->
                               </div>
                               <div class="swiper" id="tabletSwiper1">
                                  <div class="swiper-wrapper">
                                     <div class="swiper-slide">
+                                       <button class="compare-empty">
+                                          <div class="compare-empty__icon">
+                                             <svg width="23" height="24" viewBox="0 0 23 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.5 2V22M21.5 12L1.5 12" stroke="#999999" stroke-width="3"
+                                                   stroke-linecap="round" />
+                                             </svg>
+
+                                          </div>
+                                          <p class="compare-empty__text">Добавить товар для сравнения</p>
+                                       </button>
+                                    </div>
+                                    <!-- <div class="swiper-slide">
                                        <div class="product-card" id="product3001">
                                           <div class="product-card__header">
                                              <ul class="product-card__hidden">
@@ -901,8 +788,8 @@
                                              </div>
                                           </div>
                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
+                                    </div> -->
+                                    <!-- <div class="swiper-slide">
                                        <div class="product-card" id="product4002">
                                           <div class="product-card__header">
                                              <ul class="product-card__hidden">
@@ -1041,20 +928,34 @@
                                              </div>
                                           </div>
                                        </div>
-                                    </div>
+                                    </div> -->
                                  </div>
-                                 <div class="pagination">
+                                 <!-- <div class="pagination">
                                     <div>
                                        <span class="current">1</span>
                                        <span>товар из</span>
                                        <span class="total">3</span>
                                     </div>
                                     <div class="swiper-pagination"></div>
-                                 </div>
+                                 </div> -->
                               </div>
                               <div class="swiper" id="tabletSwiper2">
                                  <div class="swiper-wrapper">
                                     <div class="swiper-slide">
+                                       <button class="compare-empty">
+                                          <div class="compare-empty__icon">
+                                             <svg width="23" height="24" viewBox="0 0 23 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.5 2V22M21.5 12L1.5 12" stroke="#999999" stroke-width="3"
+                                                   stroke-linecap="round" />
+                                             </svg>
+
+                                          </div>
+                                          <p class="compare-empty__text">Добавить товар для сравнения</p>
+                                       </button>
+                                    </div>
+
+                                    <!-- <div class="swiper-slide">
                                        <div class="product-card" id="product3002">
                                           <div class="product-card__header">
                                              <ul class="product-card__hidden">
@@ -1263,18 +1164,18 @@
                                              </div>
                                           </div>
                                        </div>
-                                    </div>
+                                    </div> -->
                                  </div>
-                                 <div class="pagination">
+                                 <!-- <div class="pagination">
                                     <div>
                                        <span class="current">1</span>
                                        <span>товар из</span>
                                        <span class="total">3</span>
                                     </div>
                                     <div class="swiper-pagination"></div>
-                                 </div>
+                                 </div> -->
                               </div>
-                              <div class="sticky-swiper">
+                              <!-- <div class="sticky-swiper">
                                  <div class="swiper" id="tabletSwiper3">
                                     <div class="swiper-wrapper">
                                        <div class="swiper-slide">
@@ -1404,7 +1305,7 @@
                                        </div>
                                     </div>
                                  </div>
-                              </div>
+                              </div> -->
                            </div>
                            <div class="mobile">
                               <div class="swiper" id="mobileSwiper0">
@@ -1479,159 +1380,32 @@
                                           </div>
                                        </div>
                                     </div>
-                                    <div class="swiper-slide">
-                                       <div class="product-card" id="product2004">
-                                          <div class="product-card__header">
-                                             <ul class="product-card__hidden">
-                                                <li></li>
-                                                <li></li>
-                                             </ul>
-                                             <ul class="product-card__banners">
-                                                <li class="black">
-                                                   Черная Пятница
-                                                </li>
-                                                <li class="orange">
-                                                   Весенний розыгрыш
-                                                </li>
-                                                <li class="blue">
-                                                   Летняя распродажа
-                                                </li>
-                                             </ul>
-                                             <div class="product-card__slider swiper">
-                                                <div class="swiper-wrapper">
-                                                   <div class="swiper-slide">
-                                                      <img src="img/product/1.png" alt="">
-                                                   </div>
-                                                   <div class="swiper-slide">
-                                                      <img src="img/product/2.png" alt="">
-                                                   </div>
-                                                </div>
-                                                <div class="product-card__pagination"></div>
-                                             </div>
-                                          </div>
-                                          <div class="product-card__main">
-                                             <h5 class="product-card__title body-text">
-                                                Смартфон Apple iPhone 14 Plus 128 ГБ «тёмная ночь»
-                                             </h5>
-                                             <div class="product-card__info">
-                                                <span class="product-card__price actual">
-                                                   419 990 ₽
-                                                </span>
-                                             </div>
-                                             <div class="product-card__actions">
-                                                <button class="product-card__buy btn">
-                                                   <span>В корзину</span>
-                                                   <img src="img/icons/cart.svg" alt="">
-                                                </button>
-                                                <button class="product-card__like">
-                                                   <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
-                                                      xmlns="http://www.w3.org/2000/svg">
-                                                      <path
-                                                         d="M31.6607 12.5074C30.9236 10.6452 29.5164 9.2173 27.6979 8.48613C26.9116 8.17022 26.1152 8.0099 25.3317 8.0099C22.7257 8.0099 20.9024 9.73509 20.191 10.5439C19.4831 9.73232 17.6679 8 15.0627 8C14.2816 8 13.4876 8.15993 12.7025 8.47544C10.884 9.20661 9.47633 10.6345 8.73926 12.4963C7.95293 14.4831 8.0294 16.7348 8.94945 18.675C10.2559 21.4291 13.2258 25.7167 19.9556 30.5004L20.189 30.6667L20.4224 30.5004C27.1854 25.693 30.1521 21.4215 31.4497 18.6849C32.3706 16.7455 32.447 14.4938 31.6607 12.5074Z"
-                                                         stroke="#999999" stroke-width="2" stroke-linejoin="round" />
-                                                   </svg>
-
-                                                </button>
-                                                <button class="product-card__share">
-                                                   <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                                      xmlns="http://www.w3.org/2000/svg">
-                                                      <path
-                                                         d="M29.3327 13.3333H10.666M13.9602 13.3333C14.0216 13.3333 14.0522 13.3333 14.0801 13.3324C14.9842 13.3046 15.7819 12.6065 16.0895 11.5737C16.099 11.5419 16.1087 11.5066 16.1281 11.4359L16.2347 11.0475C16.3257 10.716 16.3712 10.5503 16.4316 10.4095C16.6724 9.84801 17.1179 9.4581 17.6327 9.35827C17.7617 9.33325 17.9056 9.33325 18.1934 9.33325H21.8054C22.0932 9.33325 22.237 9.33325 22.3661 9.35827C22.8809 9.4581 23.3264 9.84801 23.5672 10.4095C23.6276 10.5503 23.6731 10.716 23.7641 11.0475L23.8707 11.4359C23.89 11.5062 23.8998 11.542 23.9093 11.5737C24.2169 12.6065 25.0146 13.3046 25.9187 13.3324C25.9465 13.3333 25.9772 13.3333 26.0386 13.3333"
-                                                         stroke="#999999" stroke-width="2" stroke-linecap="round"
-                                                         stroke-linejoin="round" />
-                                                      <path
-                                                         d="M13.334 16L14.1511 28.5833C14.2274 29.7589 15.0549 30.6667 16.0502 30.6667H23.9511C24.9464 30.6667 25.7739 29.7589 25.8502 28.5833L26.6673 16"
-                                                         stroke="#999999" stroke-width="2" stroke-linecap="round"
-                                                         stroke-linejoin="round" />
-                                                   </svg>
-                                                </button>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                       <div class="product-card" id="product1003">
-                                          <div class="product-card__header">
-                                             <ul class="product-card__hidden">
-                                                <li></li>
-                                                <li></li>
-                                             </ul>
-                                             <ul class="product-card__banners">
-                                                <li class="black">
-                                                   Черная Пятница
-                                                </li>
-                                                <li class="orange">
-                                                   Весенний розыгрыш
-                                                </li>
-                                                <li class="blue">
-                                                   Летняя распродажа
-                                                </li>
-                                             </ul>
-                                             <div class="product-card__slider swiper">
-                                                <div class="swiper-wrapper">
-                                                   <div class="swiper-slide">
-                                                      <img src="img/product/1.png" alt="">
-                                                   </div>
-                                                   <div class="swiper-slide">
-                                                      <img src="img/product/2.png" alt="">
-                                                   </div>
-                                                </div>
-                                                <div class="product-card__pagination"></div>
-                                             </div>
-                                          </div>
-                                          <div class="product-card__main">
-                                             <h5 class="product-card__title body-text">
-                                                Смартфон Apple iPhone 14 Plus 128 ГБ «тёмная ночь»
-                                             </h5>
-                                             <div class="product-card__info">
-                                                <span class="product-card__price actual">
-                                                   419 990 ₽
-                                                </span>
-                                             </div>
-                                             <div class="product-card__actions">
-                                                <button class="product-card__buy btn">
-                                                   <span>В корзину</span>
-                                                   <img src="img/icons/cart.svg" alt="">
-                                                </button>
-                                                <button class="product-card__like">
-                                                   <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
-                                                      xmlns="http://www.w3.org/2000/svg">
-                                                      <path
-                                                         d="M31.6607 12.5074C30.9236 10.6452 29.5164 9.2173 27.6979 8.48613C26.9116 8.17022 26.1152 8.0099 25.3317 8.0099C22.7257 8.0099 20.9024 9.73509 20.191 10.5439C19.4831 9.73232 17.6679 8 15.0627 8C14.2816 8 13.4876 8.15993 12.7025 8.47544C10.884 9.20661 9.47633 10.6345 8.73926 12.4963C7.95293 14.4831 8.0294 16.7348 8.94945 18.675C10.2559 21.4291 13.2258 25.7167 19.9556 30.5004L20.189 30.6667L20.4224 30.5004C27.1854 25.693 30.1521 21.4215 31.4497 18.6849C32.3706 16.7455 32.447 14.4938 31.6607 12.5074Z"
-                                                         stroke="#999999" stroke-width="2" stroke-linejoin="round" />
-                                                   </svg>
-
-                                                </button>
-                                                <button class="product-card__share">
-                                                   <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                                      xmlns="http://www.w3.org/2000/svg">
-                                                      <path
-                                                         d="M29.3327 13.3333H10.666M13.9602 13.3333C14.0216 13.3333 14.0522 13.3333 14.0801 13.3324C14.9842 13.3046 15.7819 12.6065 16.0895 11.5737C16.099 11.5419 16.1087 11.5066 16.1281 11.4359L16.2347 11.0475C16.3257 10.716 16.3712 10.5503 16.4316 10.4095C16.6724 9.84801 17.1179 9.4581 17.6327 9.35827C17.7617 9.33325 17.9056 9.33325 18.1934 9.33325H21.8054C22.0932 9.33325 22.237 9.33325 22.3661 9.35827C22.8809 9.4581 23.3264 9.84801 23.5672 10.4095C23.6276 10.5503 23.6731 10.716 23.7641 11.0475L23.8707 11.4359C23.89 11.5062 23.8998 11.542 23.9093 11.5737C24.2169 12.6065 25.0146 13.3046 25.9187 13.3324C25.9465 13.3333 25.9772 13.3333 26.0386 13.3333"
-                                                         stroke="#999999" stroke-width="2" stroke-linecap="round"
-                                                         stroke-linejoin="round" />
-                                                      <path
-                                                         d="M13.334 16L14.1511 28.5833C14.2274 29.7589 15.0549 30.6667 16.0502 30.6667H23.9511C24.9464 30.6667 25.7739 29.7589 25.8502 28.5833L26.6673 16"
-                                                         stroke="#999999" stroke-width="2" stroke-linecap="round"
-                                                         stroke-linejoin="round" />
-                                                   </svg>
-                                                </button>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
                                  </div>
-                                 <div class="pagination">
+                                 <!-- <div class="pagination">
                                     <div>
                                        <span class="current">1</span>
                                        <span>товар из</span>
                                        <span class="total">3</span>
                                     </div>
                                     <div class="swiper-pagination"></div>
-                                 </div>
+                                 </div> -->
                               </div>
                               <div class="swiper" id="mobileSwiper1">
                                  <div class="swiper-wrapper">
                                     <div class="swiper-slide">
+                                       <button class="compare-empty">
+                                          <div class="compare-empty__icon">
+                                             <svg width="23" height="24" viewBox="0 0 23 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.5 2V22M21.5 12L1.5 12" stroke="#999999" stroke-width="3"
+                                                   stroke-linecap="round" />
+                                             </svg>
+
+                                          </div>
+                                          <p class="compare-empty__text">Добавить товар для сравнения</p>
+                                       </button>
+                                    </div>
+                                    <!-- <div class="swiper-slide">
                                        <div class="product-card" id="product3003">
                                           <div class="product-card__header">
                                              <ul class="product-card__hidden">
@@ -1840,18 +1614,18 @@
                                              </div>
                                           </div>
                                        </div>
-                                    </div>
+                                    </div> -->
                                  </div>
-                                 <div class="pagination">
+                                 <!-- <div class="pagination">
                                     <div>
                                        <span class="current">1</span>
                                        <span>товар из</span>
                                        <span class="total">3</span>
                                     </div>
                                     <div class="swiper-pagination"></div>
-                                 </div>
+                                 </div> -->
                               </div>
-                              <div class="sticky-swiper">
+                              <!-- <div class="sticky-swiper">
                                  <div class="swiper" id="mobileSwiper2">
                                     <div class="swiper-wrapper">
                                        <div class="swiper-slide">
@@ -1938,7 +1712,7 @@
                                        </div>
                                     </div>
                                  </div>
-                              </div>
+                              </div> -->
                            </div>
                         </div>
                         <div class="compare-page__info compare-info">
@@ -2744,7 +2518,7 @@
             </div>
          </div>
       </div>
-      <footer></footer>
+      @@include('html/footer.html', {})
    </div>
    <script src="https://unpkg.com/imask"></script>
    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

@@ -274,15 +274,61 @@
       flex: 1;
       font-size: 14px;
       font-weight: 400;
+      transition: 0.3s;
       img {
          display: none;
+      }
+      &:hover {
+         background-color: #3a3a3c;
+      }
+      &:active {
+         background-color: #fff;
+         border: 1px solid #0e0e0e;
+         color: #0e0e0e;
       }
    }
 
    &__like {
+      svg,
+      path {
+         transition: 0.3s;
+      }
+      @media (hover: hover) {
+         &:hover {
+            svg {
+               // fill: $black;
+            }
+            path {
+               stroke: $black;
+            }
+         }
+      }
+      &:active {
+         svg {
+            // fill: $black;
+         }
+         path {
+            stroke: $black;
+         }
+      }
    }
 
    &__share {
+      @media (hover: hover) {
+         &:hover {
+            path {
+               stroke: $black;
+            }
+         }
+      }
+      &:active {
+         path {
+            stroke: $black;
+         }
+      }
+      path {
+         transition: 0.3s;
+      }
    }
 
    @media (max-width: 1024px) {
