@@ -22,6 +22,9 @@
       color: $black;
       max-width: 527px;
       @include body;
+      &.page {
+         max-width: 527px;
+      }
       a {
          display: inline-block;
          width: 24px;
@@ -311,6 +314,15 @@
          padding-right: 20px;
          padding-bottom: 40px;
          padding-top: 32px;
+      }
+      .sticky-swiper {
+         margin-left: 0;
+         margin-right: 0;
+         padding-left: 0;
+         padding-right: 0;
+         padding-bottom: 0;
+         padding-top: 0;
+         padding: 16px 20px;
       }
    }
    width: 1184px;

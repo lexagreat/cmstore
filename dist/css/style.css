@@ -2296,6 +2296,10 @@ body.lock {
   line-height: 1.25;
 }
 
+.compare-empty__text.page {
+  max-width: 527px;
+}
+
 .compare-empty__text a {
   display: inline-block;
   width: 24px;
@@ -2547,6 +2551,16 @@ body.lock {
   padding-right: 20px;
   padding-bottom: 40px;
   padding-top: 32px;
+}
+
+.compare-products .desktop .sticky-swiper {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-top: 0;
+  padding: 16px 20px;
 }
 
 .compare-products .tablet,
