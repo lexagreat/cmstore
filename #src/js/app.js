@@ -1078,15 +1078,6 @@ function tradeInCalculate() {
          value: "Nubia",
       },
    ];
-   const giveBrandSelect = new Select("#giveBrand", {
-      placeholder: "Бренд",
-      // selectedId: "volg",
-      data: brandData,
-      onSelect(item, select) {
-         select.classList.add("filled");
-         giveValidation();
-      },
-   });
    const giveModelSelect = new Select("#giveModel", {
       placeholder: "Модель",
       // selectedId: "volg",
@@ -1096,13 +1087,14 @@ function tradeInCalculate() {
          giveValidation();
       },
    });
-   const getBrandSelect = new Select("#getBrand", {
+   const giveBrandSelect = new Select("#giveBrand", {
       placeholder: "Бренд",
       // selectedId: "volg",
       data: brandData,
       onSelect(item, select) {
          select.classList.add("filled");
-         getValidation();
+         giveValidation();
+         giveModelSelect.$el.style.pointerEvents = "";
       },
    });
    const getModelSelect = new Select("#getModel", {
@@ -1114,7 +1106,16 @@ function tradeInCalculate() {
          getValidation();
       },
    });
-
+   const getBrandSelect = new Select("#getBrand", {
+      placeholder: "Бренд",
+      // selectedId: "volg",
+      data: brandData,
+      onSelect(item, select) {
+         select.classList.add("filled");
+         getValidation();
+         getModelSelect.$el.style.pointerEvents = "";
+      },
+   });
    const giveValidation = () => {
       if (giveBrandSelect.selectedId && giveModelSelect.selectedId) {
          giveSection.style.display = "";

@@ -3338,7 +3338,64 @@ body.lock {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 4px;
+}
+
+.trade-result__hint {
+  position: relative;
+  cursor: pointer;
+}
+
+.trade-result__hint button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.trade-result__hint:hover .trade-result__hidden {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.trade-result__hidden {
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0;
+  padding: 16px;
+  -webkit-box-shadow: 0px 0px 15px 0px #e1e1e133, 0px 0px 46px 0px #e1e1e11f, 0px 10px 38px 0px #e1e1e1;
+          box-shadow: 0px 0px 15px 0px #e1e1e133, 0px 0px 46px 0px #e1e1e11f, 0px 10px 38px 0px #e1e1e1;
+  pointer-events: none;
+  position: absolute;
+  top: 7px;
+  left: 100%;
+  translate: 33px -50%;
+  border-radius: 8px;
+  background-color: #fff;
+  width: 496px;
+  color: #0e0e0e;
+  font-size: 14px;
+  line-height: 1.2142857143;
+}
+
+.trade-result__hidden::before {
+  content: "";
+  display: block;
+  -webkit-clip-path: polygon(0 47%, 100% 0, 100% 100%);
+          clip-path: polygon(0 47%, 100% 0, 100% 100%);
+  background-color: #fff;
+  height: 32px;
+  width: 15px;
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  right: 100%;
 }
 
 .trade-result__price {
@@ -3467,6 +3524,10 @@ body.lock {
 @media (max-width: 1600px) {
   .news-section__main {
     max-width: calc(767px + 112 * (100vw - 1440px) / 160);
+  }
+
+  .trade-result__hidden {
+    width: calc(200px + 296 * (100vw - 1024px) / 576);
   }
 }
 
@@ -4135,6 +4196,26 @@ body.lock {
 
   .trade-calculate__wrapper {
     gap: 60px;
+  }
+
+  .trade-result__hidden {
+    width: 500px;
+    top: 100%;
+    left: unset;
+    right: 0;
+    translate: 20px 20px;
+  }
+
+  .trade-result__hidden::before {
+    -webkit-clip-path: polygon(50% 0, 0 100%, 100% 100%);
+            clip-path: polygon(50% 0, 0 100%, 100% 100%);
+    height: 15px;
+    width: 40px;
+    top: unset;
+    bottom: 100%;
+    left: unset;
+    translate: unset;
+    right: 7px;
   }
 
   .header {
@@ -5600,6 +5681,20 @@ body.lock {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+
+  .trade-result__hidden {
+    width: calc(100vw - 100px);
+    top: 100%;
+    left: -200px;
+    right: unset;
+    translate: 0 20px;
+  }
+
+  .trade-result__hidden::before {
+    translate: unset;
+    right: unset;
+    left: 193px;
   }
 
   .header {

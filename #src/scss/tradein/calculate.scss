@@ -339,9 +339,85 @@
       @include body-s;
       color: #7d7d7d;
       display: flex;
+      align-items: center;
       gap: 4px;
    }
-
+   &__hint {
+      position: relative;
+      cursor: pointer;
+      button {
+         display: flex;
+         align-items: center;
+      }
+      &:hover {
+         .trade-result__hidden {
+            opacity: 1;
+            pointer-events: all;
+         }
+      }
+   }
+   &__hidden {
+      transition: 0.3s;
+      opacity: 0;
+      padding: 16px;
+      box-shadow: 0px 0px 15px 0px #e1e1e133, 0px 0px 46px 0px #e1e1e11f,
+         0px 10px 38px 0px #e1e1e1;
+      pointer-events: none;
+      position: absolute;
+      top: 7px;
+      left: 100%;
+      translate: 33px -50%;
+      border-radius: 8px;
+      background-color: $white;
+      width: 496px;
+      color: $black;
+      font-size: 14px;
+      line-height: calc(17 / 14);
+      &::before {
+         content: "";
+         display: block;
+         clip-path: polygon(0 47%, 100% 0, 100% 100%);
+         background-color: $white;
+         height: 32px;
+         width: 15px;
+         position: absolute;
+         top: 50%;
+         translate: 0 -50%;
+         right: 100%;
+      }
+      @media (max-width: 1600px) {
+         width: calc(200px + 296 * ((100vw - 1024px) / (1600 - 1024)));
+      }
+      @media (max-width: 1024px) {
+         width: 500px;
+         top: 100%;
+         left: unset;
+         right: 0;
+         translate: 20px 20px;
+         &::before {
+            clip-path: polygon(50% 0, 0 100%, 100% 100%);
+            height: 15px;
+            width: 40px;
+            top: unset;
+            bottom: 100%;
+            left: unset;
+            translate: unset;
+            right: 7px;
+         }
+      }
+      @media (max-width: 568px) {
+         width: calc(100vw - 100px);
+         top: 100%;
+         left: -200px;
+         right: unset;
+         translate: 0 20px;
+         &::before {
+            translate: unset;
+            right: unset;
+            left: 193px;
+         }
+      }
+   }
    &__price {
       @include h0;
       color: $black;
