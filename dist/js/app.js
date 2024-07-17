@@ -32,6 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
    checkInputValue();
    inputMasks();
    comparePage();
+
+   // trade in
+   tradeInCalculate();
 });
 
 function initHeroSwiper() {
@@ -891,4 +894,243 @@ function comparePage() {
    }
    window.addEventListener("scroll", makeNavSticky);
    makeNavSticky();
+}
+
+class Select {
+   constructor(selector, options) {
+      this.$el = document.querySelector(selector);
+      this.options = options;
+      this.selectedId = options.selectedId;
+
+      this.#render();
+      this.#setup();
+   }
+   #render() {
+      this.$el.classList.add("select");
+      const { placeholder, data, selectedId } = this.options;
+      this.$el.innerHTML = this.getTemplate(data, placeholder, selectedId);
+      if (placeholder) {
+         this.$el
+            .querySelector(`[data-type="input"]`)
+            .classList.add("placeholder");
+      }
+   }
+   #setup() {
+      this.clickHandler = this.clickHandler.bind(this);
+      this.$el.addEventListener("click", this.clickHandler);
+      this.$value = this.$el.querySelector(`[data-type="input"] span`);
+   }
+   clickHandler(event) {
+      const { type } = event.target.dataset;
+      if (type === "input") {
+         this.toggle();
+      } else if (type === "item") {
+         const { id } = event.target.dataset;
+         this.select(id);
+      } else if (type === "back") {
+         this.toggle();
+      } else if (type === "header") {
+         this.toggle();
+      } else if (event.target.closest(".select__header")) [this.toggle()];
+   }
+   get current() {
+      return this.options.data.find((item) => item.id === this.selectedId);
+   }
+   select(id) {
+      this.$el
+         .querySelector(`[data-type="input"]`)
+         .classList.remove("placeholder");
+      this.selectedId = id;
+      this.$value.innerHTML = this.current.value;
+      this.$el.querySelectorAll(`[data-type="item"]`).forEach((item) => {
+         item.classList.remove("selected");
+      });
+      this.$el
+         .querySelector(`[data-id =${this.current.id}]`)
+         .classList.add("selected");
+      this.close();
+
+      if (this.options.onSelect) {
+         this.options.onSelect(this.current, this.$el);
+      }
+   }
+   open() {
+      this.$el.classList.add("open");
+   }
+   close() {
+      this.$el.classList.remove("open");
+   }
+   toggle() {
+      if (this.$el.classList.contains("open")) {
+         this.close();
+      } else {
+         this.open();
+      }
+   }
+   getTemplate(data, placeholder = `<span></span>`, selectedId) {
+      const items = data.map((item) => {
+         let cls = "";
+         if (item.id === selectedId) {
+            placeholder = item.value;
+            cls = "selected";
+         }
+         return `<li class="select__item ${cls}" data-type="item" data-id="${item.id}">${item.value}</li>`;
+      });
+      return `
+      <div class="select__header" data-type="header">
+      <div class="select__back" data-type="back"></div>
+      <div class="select__title" data-type="input">
+         <span>${placeholder}</span>
+         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 6L8 10L12 6" stroke="#0E0E0E" stroke-linecap="round"/>
+         </svg>
+    </div>
+      </div>
+      <div class="select__content">
+         <ul class="select__list">
+            ${items.join("")}
+         </ul>
+      </div>
+      `;
+   }
+}
+
+function tradeInCalculate() {
+   if (!document.querySelector(".trade-calculate")) return;
+   const giveSection = document.querySelector("#give .trade-card__section");
+   const giveRes = document.querySelector("#give .trade-card__result");
+
+   const getSection = document.querySelector("#get .trade-card__section");
+   const getRes = document.querySelector("#get .trade-card__result");
+   const brandData = [
+      {
+         id: "Apple",
+         value: "Apple iPhone",
+      },
+      {
+         id: "Samsung",
+         value: "Samsung",
+      },
+      {
+         id: "Xiaomi",
+         value: "Xiaomi",
+      },
+      {
+         id: "OnePlus",
+         value: "One Plus",
+      },
+      {
+         id: "Realme",
+         value: "Realme",
+      },
+      {
+         id: "Asus",
+         value: "Asus",
+      },
+      {
+         id: "Google",
+         value: "Google",
+      },
+      {
+         id: "Nothing",
+         value: "Nothing",
+      },
+      {
+         id: "Nubia",
+         value: "Nubia",
+      },
+   ];
+   const modelData = [
+      {
+         id: "Apple",
+         value: "Apple iPhone",
+      },
+      {
+         id: "Samsung",
+         value: "Samsung",
+      },
+      {
+         id: "Xiaomi",
+         value: "Xiaomi",
+      },
+      {
+         id: "OnePlus",
+         value: "One Plus",
+      },
+      {
+         id: "Realme",
+         value: "Realme",
+      },
+      {
+         id: "Asus",
+         value: "Asus",
+      },
+      {
+         id: "Google",
+         value: "Google",
+      },
+      {
+         id: "Nothing",
+         value: "Nothing",
+      },
+      {
+         id: "Nubia",
+         value: "Nubia",
+      },
+   ];
+   const giveBrandSelect = new Select("#giveBrand", {
+      placeholder: "Бренд",
+      // selectedId: "volg",
+      data: brandData,
+      onSelect(item, select) {
+         giveValidation();
+      },
+   });
+   const giveModelSelect = new Select("#giveModel", {
+      placeholder: "Модель",
+      // selectedId: "volg",
+      data: modelData,
+      onSelect(item, select) {
+         giveValidation();
+      },
+   });
+   const getBrandSelect = new Select("#getBrand", {
+      placeholder: "Бренд",
+      // selectedId: "volg",
+      data: brandData,
+      onSelect(item, select) {
+         getValidation();
+      },
+   });
+   const getModelSelect = new Select("#getModel", {
+      placeholder: "Модель",
+      // selectedId: "volg",
+      data: modelData,
+      onSelect(item, select) {
+         getValidation();
+      },
+   });
+
+   const giveValidation = () => {
+      if (giveBrandSelect.selectedId && giveModelSelect.selectedId) {
+         giveSection.style.display = "";
+         const inputs = document.querySelectorAll('input[name="giveStorage"]');
+         inputs.forEach((item) => {
+            item.addEventListener("change", () => {
+               giveRes.style.display = "";
+            });
+         });
+      }
+   };
+   const getValidation = () => {
+      if (getBrandSelect.selectedId && getModelSelect.selectedId) {
+         getSection.style.display = "";
+         const inputs = document.querySelectorAll('input[name="getStorage"]');
+         inputs.forEach((item) => {
+            item.addEventListener("change", () => {
+               getRes.style.display = "";
+            });
+         });
+      }
+   };
 }

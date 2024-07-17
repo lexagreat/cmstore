@@ -33,6 +33,12 @@ $red: #d70015;
    font-weight: 700;
    line-height: calc(44 / 36);
 }
+@mixin h2 {
+   //styleName: H2;
+   font-size: 28px;
+   font-weight: 600;
+   line-height: calc(32 / 28);
+}
 @mixin h3 {
    //styleName: H3;
    font-size: 24px;

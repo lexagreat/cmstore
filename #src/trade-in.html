@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/head.html', {
+"title": "Трейд ин",
+})
+
+<body>
+   <div class="wrapper">
+      @@include('html/header.html', {})
+      <main class="main">
+         <section class="breadcrumbs">
+            <div class="container">
+               <ul class="breadcrumbs__list">
+                  <li>
+                     <a href="index.html" class="breadcrumbs__link">Главная</a>
+                  </li>
+                  <li>
+                     <a href="#" class="breadcrumbs__link">Trade In</a>
+                  </li>
+               </ul>
+            </div>
+         </section>
+         <section class="trade-hero">
+            <div class="container">
+               <div class="trade-hero__wrapper">
+                  <div class="trade-hero__content">
+                     <h1 class="trade-hero__title h0">Trade In в CMstore</h1>
+                     <p class="trade-hero__subtitle body-text">Обменяйте старый гаджет на новый за минусом стоимости
+                        вашего старого устройства</p>
+                  </div>
+                  <div class="trade-hero__phones">
+                     <img src="img/tradein/hero-phones.png" alt="">
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section class="trade-calculate">
+            <div class="container">
+               <div class="trade-calculate__wrapper">
+                  <div class="trade-calculate__upper">
+                     <div class="trade-calculate__card">
+                        <div class="trade-calculate__icon">
+                           <img src="img/tradein/calc1.svg" alt="">
+                        </div>
+                        <div class="trade-calculate__info">
+                           <h5 class="trade-calculate__subtitle">Оценка вашего устройства</h5>
+                           <p class="trade-calculate__text">Цена устройства определяется после детальной оценки
+                              с помощью специального программного обеспечения. Оценка проводится на основании внешнего
+                              осмотра, номера IMEI или серийного номера, технического состояния устройства
+                              и его компонентов. Устройство должно быть в рабочем состоянии (включаться), без следов
+                              от контакта с жидкостью и существенных повреждений корпуса и экрана</p>
+                        </div>
+                     </div>
+                     <div class="trade-calculate__card">
+                        <div class="trade-calculate__icon">
+                           <img src="img/tradein/calc2.svg" alt="">
+                        </div>
+                        <div class="trade-calculate__info">
+                           <h5 class="trade-calculate__subtitle">Обратитесь в сервисный центр</h5>
+                           <p class="trade-calculate__text">На сайте указана максимально возможная стоимость выкупа
+                              старого устройства, исходя из его характеристик. Точную стоимость вам сообщит менеджер
+                              в салоне продаж после прохождения диагностики у специалистов сервисного центра</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="trade-calculate__main trade-card">
+                     <h2 class="trade-card__title">Рассчитайте выгоду</h2>
+                     <div class="trade-card__main">
+                        <div class="trade-card__layout">
+                           <div class="trade-card__block" id="give">
+                              <h6 class="trade-card__subtitle">Хочу сдать</h6>
+                              <ul class="trade-card__list">
+                                 <li>
+                                    <div class="trade-card__select project-select" id="giveBrand"></div>
+                                    <label for="giveBrand">Бренд</label>
+                                 </li>
+                                 <li>
+                                    <div class="trade-card__select project-select" id="giveModel"></div>
+                                    <label for="giveModel">Модель</label>
+
+                                 </li>
+                              </ul>
+                              <div class="trade-card__section" style="display: none;">
+                                 <span class="trade-card__span">Память</span>
+                                 <ul>
+                                    <li>
+                                       <input type="radio" name="giveStorage" id='giveStorage1' value="1">
+                                       <label for="giveStorage1" class="faq-navigation__link">56 Гб</label>
+                                    </li>
+                                    <li>
+                                       <input type="radio" name="giveStorage" id='giveStorage2' value="2">
+                                       <label for="giveStorage2" class="faq-navigation__link">128 Гб</label>
+                                    </li>
+                                    <li>
+                                       <input type="radio" name="giveStorage" id='giveStorage3' value="3">
+                                       <label for="giveStorage3" class="faq-navigation__link">256 Гб</label>
+                                    </li>
+                                    <li>
+                                       <input type="radio" name="giveStorage" id='giveStorage4' value="4">
+                                       <label for="giveStorage4" class="faq-navigation__link">512 Гб</label>
+                                    </li>
+                                 </ul>
+                              </div>
+                              <div class="trade-card__result trade-result" style="display: none;">
+                                 <span class="trade-result__title">Ваша скидка</span>
+                                 <span class="trade-result__price">20 000 ₽</span>
+                              </div>
+                           </div>
+                           <div class="trade-card__block" id="get">
+                              <h6 class="trade-card__subtitle">Хочу купить</h6>
+                              <ul class="trade-card__list">
+                                 <li>
+                                    <div class="trade-card__select project-select" id="getBrand"></div>
+                                    <label for="getBrand">Бренд</label>
+
+                                 </li>
+                                 <li>
+                                    <div class="trade-card__select project-select" id="getModel"></div>
+                                    <label for="getModel">Модель</label>
+
+                                 </li>
+                              </ul>
+                              <div class="trade-card__section" style="display: none;">
+                                 <span class="trade-card__span">Память</span>
+                                 <ul>
+                                    <li>
+                                       <input type="radio" name="getStorage" id='getStorage1' value="1">
+                                       <label for="getStorage1" class="faq-navigation__link">56 Гб</label>
+                                    </li>
+                                    <li>
+                                       <input type="radio" name="getStorage" id='getStorage2' value="2">
+                                       <label for="getStorage2" class="faq-navigation__link">128 Гб</label>
+                                    </li>
+                                    <li>
+                                       <input type="radio" name="getStorage" id='getStorage3' value="3">
+                                       <label for="getStorage3" class="faq-navigation__link">256 Гб</label>
+                                    </li>
+                                    <li>
+                                       <input type="radio" name="getStorage" id='getStorage4' value="4">
+                                       <label for="getStorage4" class="faq-navigation__link">512 Гб</label>
+                                    </li>
+                                    <li>
+                                       <input type="radio" name="getStorage" id='getStorage5' value="5">
+                                       <label for="getStorage5" class="faq-navigation__link">1 Тб</label>
+                                    </li>
+                                    <li>
+                                       <input type="radio" name="getStorage" id='getStorage6' value="6">
+                                       <label for="getStorage6" class="faq-navigation__link">2 Тб</label>
+                                    </li>
+                                 </ul>
+                              </div>
+                              <div class="trade-card__result trade-result" style="display: none;">
+                                 <div class="trade-result__title">
+                                    <span>
+                                       Стоимость нового устройства
+                                    </span>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                       xmlns="http://www.w3.org/2000/svg">
+                                       <path
+                                          d="M7.19995 7.18392C7.19995 6.97175 7.28424 6.76827 7.43427 6.61824C7.5843 6.46821 7.78778 6.38392 7.99995 6.38392C8.21212 6.38392 8.41561 6.46821 8.56564 6.61824C8.71567 6.76827 8.79995 6.97175 8.79995 7.18392V11.9839C8.79995 12.1961 8.71567 12.3996 8.56564 12.5496C8.41561 12.6996 8.21212 12.7839 7.99995 12.7839C7.78778 12.7839 7.5843 12.6996 7.43427 12.5496C7.28424 12.3996 7.19995 12.1961 7.19995 11.9839V7.18392ZM7.99995 3.24072C7.78778 3.24072 7.5843 3.32501 7.43427 3.47504C7.28424 3.62507 7.19995 3.82855 7.19995 4.04072C7.19995 4.2529 7.28424 4.45638 7.43427 4.60641C7.5843 4.75644 7.78778 4.84072 7.99995 4.84072C8.21212 4.84072 8.41561 4.75644 8.56564 4.60641C8.71567 4.45638 8.79995 4.2529 8.79995 4.04072C8.79995 3.82855 8.71567 3.62507 8.56564 3.47504C8.41561 3.32501 8.21212 3.24072 7.99995 3.24072Z"
+                                          fill="#999999" />
+                                       <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M8 0C3.5816 0 0 3.5816 0 8C0 12.4184 3.5816 16 8 16C12.4184 16 16 12.4184 16 8C16 3.5816 12.4184 0 8 0ZM1.6 8C1.6 9.69739 2.27428 11.3253 3.47452 12.5255C4.67475 13.7257 6.30261 14.4 8 14.4C9.69739 14.4 11.3253 13.7257 12.5255 12.5255C13.7257 11.3253 14.4 9.69739 14.4 8C14.4 6.30261 13.7257 4.67475 12.5255 3.47452C11.3253 2.27428 9.69739 1.6 8 1.6C6.30261 1.6 4.67475 2.27428 3.47452 3.47452C2.27428 4.67475 1.6 6.30261 1.6 8Z"
+                                          fill="#999999" />
+                                    </svg>
+
+                                 </div>
+                                 <span class="trade-result__price res">71 990 ₽</span>
+                                 <span class="trade-result__price_old">91 990 ₽</span>
+                              </div>
+                           </div>
+
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section class="trade-steps section">
+            <div class="container">
+               <div class="trade-steps__wrapper">
+                  <div class="trade-steps__upper">
+                     <h2 class="trade-steps__title h2">4 простых шага для участия в программе Trade-in</h2>
+                     <ul class="trade-steps__list">
+                        <li class="trade-steps__item trade-step">
+                           <div class="trade-step__index">1</div>
+                           <h5 class="trade-step__title">Диагностика</h5>
+                           <p class="trade-step__text body-text">
+                              Принесите свою старую технику в любой из салонов CMstore. Отдайте устройство
+                              на диагностику, которая занимает всего 5–10 минут
+                           </p>
+                        </li>
+                        <li class="trade-steps__item trade-step">
+                           <div class="trade-step__index">2</div>
+                           <h5 class="trade-step__title">Оценка</h5>
+                           <p class="trade-step__text body-text">
+                              Сотрудник назовёт вам размер скидки на новое устройство
+                           </p>
+                        </li>
+                        <li class="trade-steps__item trade-step">
+                           <div class="trade-step__index">3</div>
+                           <h5 class="trade-step__title">Обмен</h5>
+                           <p class="trade-step__text body-text">
+                              Выберите новое устройство: смартфон, планшет, ноутбук, ПК или умные часы
+                           </p>
+                        </li>
+                        <li class="trade-steps__item trade-step">
+                           <div class="trade-step__index">4</div>
+                           <h5 class="trade-step__title">Оформление</h5>
+                           <p class="trade-step__text body-text">
+                              Оформите необходимые документы и заберите новое устройство!
+                           </p>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="trade-steps__down">
+                     <div class="trade-steps__card">Возьмите с собой комплект поставки устройства (коробка, аксессуары
+                        и документация в рабочем состоянии) это увеличит стоимость вашего устройства. И не забудьте
+                        паспорт!</div>
+                     <div class="trade-steps__remind">
+                        <p>
+                           Все ваши устройства, сданные по программе trade-in, могут суммарно использоваться при оплате
+                           вашей покупки или выступать в качестве первоначального взноса при оформлении рассрочки.
+                           Если вы захотите увеличить первоначальный взнос, то сможете доплатить наличными
+                           или банковской картой
+                        </p>
+                        <a href="#">
+                           <span>Условия Trade In</span>
+                           <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path d="M11.5 16L15.5 12L11.5 8" stroke="#2A65C5" stroke-width="1.5"
+                                 stroke-linecap="round" />
+                           </svg>
+
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </main>
+      @@include('html/footer.html', {})
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+   <script src="js/app.js"></script>
+</body>
+
+</html>
