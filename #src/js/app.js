@@ -1083,6 +1083,7 @@ function tradeInCalculate() {
       // selectedId: "volg",
       data: brandData,
       onSelect(item, select) {
+         select.classList.add("filled");
          giveValidation();
       },
    });
@@ -1091,6 +1092,7 @@ function tradeInCalculate() {
       // selectedId: "volg",
       data: modelData,
       onSelect(item, select) {
+         select.classList.add("filled");
          giveValidation();
       },
    });
@@ -1099,6 +1101,7 @@ function tradeInCalculate() {
       // selectedId: "volg",
       data: brandData,
       onSelect(item, select) {
+         select.classList.add("filled");
          getValidation();
       },
    });
@@ -1107,6 +1110,7 @@ function tradeInCalculate() {
       // selectedId: "volg",
       data: modelData,
       onSelect(item, select) {
+         select.classList.add("filled");
          getValidation();
       },
    });
