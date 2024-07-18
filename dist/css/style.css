@@ -3422,7 +3422,6 @@ body.lock {
 .info-hero__image {
   border-radius: 20px;
   overflow: hidden;
-  height: 480px;
 }
 
 .info-hero__image img {
@@ -3976,10 +3975,6 @@ body.lock {
     top: 31px;
     bottom: 31px;
     right: calc(84px + 36 * (100vw - 1024px) / 416);
-  }
-
-  .info-hero__image {
-    height: 461px;
   }
 
   .info-banks__list li {
@@ -4555,7 +4550,6 @@ body.lock {
   }
 
   .info-hero__image {
-    height: 360px;
     margin-left: -20px;
     margin-right: -20px;
     border-radius: 0;
@@ -5427,10 +5421,6 @@ body.lock {
     font-size: 18px;
   }
 
-  .info-hero__image {
-    height: 300px;
-  }
-
   .info-head__list {
     font-size: 14px;
     line-height: 1.4285714286;
@@ -6189,7 +6179,6 @@ body.lock {
   }
 
   .info-hero__image {
-    height: 400px;
     margin-left: -12px;
     margin-right: -12px;
   }
