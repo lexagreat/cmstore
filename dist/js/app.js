@@ -1141,6 +1141,20 @@ function tradeInCalculate() {
          });
       }
    };
+   const useHint = () => {
+      const modal = document.querySelector("#hint-modal");
+      const button = document.querySelector(".trade-result__hint button");
+      button.addEventListener("click", () => {
+         if (window.innerWidth <= 992) {
+            popupOpen(modal);
+         }
+      });
+      const close = document.querySelector(".hint-modal__close");
+      close.addEventListener("click", () => {
+         popupClose(modal);
+      });
+   };
+   useHint();
 }
 
 function infoPageNavigation() {

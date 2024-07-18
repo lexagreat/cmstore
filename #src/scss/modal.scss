@@ -3,6 +3,7 @@ body.lock {
 }
 
 .modal {
+   z-index: 1000;
    width: 100%;
    height: 100%;
    position: fixed;
@@ -17,7 +18,6 @@ body.lock {
    overflow-y: auto;
    overflow-x: hidden;
    cursor: pointer;
-   z-index: 10;
 }
 .modal.open .modal__content {
    @media (max-width: 768px) {
