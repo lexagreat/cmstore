@@ -35,6 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
    // trade in
    tradeInCalculate();
+
+   //info
+   infoPageNavigation();
 });
 
 function initHeroSwiper() {
@@ -1138,4 +1141,105 @@ function tradeInCalculate() {
          });
       }
    };
+}
+
+function infoPageNavigation() {
+   let headerHeight = document
+      .querySelector(".header")
+      ?.getBoundingClientRect().height;
+   let navbar = document.querySelector(".info-layout__nav .swiper");
+   if (!navbar) {
+      return;
+   }
+   let navbarHeight = navbar?.getBoundingClientRect().height;
+   pageNavigation();
+
+   function pageNavigation() {
+      const navSwiper = new Swiper(".info-layout__nav .swiper", {
+         speed: 500,
+         spaceBetween: 8,
+         slidesPerView: "auto",
+         mousewheel: {
+            enabled: true,
+            forceToAxis: true,
+         },
+         freeMode: true,
+      });
+      let links;
+      const onResize = () => {
+         if (window.innerWidth <= 768) {
+            links = document.querySelectorAll(
+               ".info-layout__nav .faq-navigation__link"
+            );
+         } else {
+            links = document.querySelectorAll(".info-layout__nav_link");
+         }
+      };
+      window.addEventListener("resize", onResize);
+      onResize();
+      const sections = document.querySelectorAll(".info-section");
+      if (!links.length) {
+         return;
+      }
+      links.forEach((link, index) => {
+         link.addEventListener("click", () => {
+            sections.forEach((section, i) => {
+               if (index === i) {
+                  window.scrollBy({
+                     top:
+                        section.getBoundingClientRect().top -
+                        headerHeight -
+                        navbarHeight -
+                        24,
+                     behavior: "smooth",
+                  });
+               }
+            });
+         });
+      });
+
+      const callback = (entries, observer) => {
+         entries.forEach((entry) => {
+            if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+               let section = entry.target?.nextElementSibling;
+               if (!section || !section.getAttribute("data-scroll")) {
+                  return;
+               }
+               let id = section.getAttribute("data-scroll");
+               links.forEach((link) => {
+                  link.classList.remove("active");
+                  if (link.getAttribute("data-scroll") === id) {
+                     link.classList.add("active");
+                     navSwiper.slideTo(id);
+                  }
+               });
+            } else {
+               if (entry.boundingClientRect.top < 0) {
+                  let section = entry.target;
+                  if (!section || !section.getAttribute("data-scroll")) {
+                     return;
+                  }
+                  let id = section.getAttribute("data-scroll");
+                  links.forEach((link) => {
+                     link.classList.remove("active");
+                     if (link.getAttribute("data-scroll") === id) {
+                        link.classList.add("active");
+                        navSwiper.slideTo(id);
+                     }
+                  });
+               }
+            }
+         });
+      };
+
+      const options = {
+         // root: по умолчанию window, но можно задать любой элемент-контейнер
+         rootMargin: "-150px 0px 0px 0px",
+         threshold: 0,
+      };
+
+      const observer = new IntersectionObserver(callback, options);
+
+      sections.forEach((section) => observer.observe(section));
+   }
 }

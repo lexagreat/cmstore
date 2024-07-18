@@ -96,6 +96,9 @@
    font-size: 16px;
    line-height: calc(20 / 16);
    color: $black;
+   @media (max-width: 768px) {
+      @include body-s;
+   }
 }
 
 .breadcrumbs {
